@@ -1,4 +1,5 @@
-# deep_pockets
+# Deep Pockets
+A simple expense-tracker for first-time earners.
 
 ## Project setup
 ```
