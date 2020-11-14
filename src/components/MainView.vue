@@ -1,5 +1,5 @@
 <template>
-  <div id="main-view">
+  <div id="main-view" v-on:input="selectTab($event)">
     <ViewHeader></ViewHeader>
     <TabView></TabView>
  </div>
@@ -13,13 +13,20 @@ export default {
     name: 'MainView',
     components: {
 	ViewHeader,
-	TabView
+    TabView,
+    },
+    data: () => {
+         return {
+            currentTab: 0
+        }
+    },
+    methods: {
+        selectTab: () => {
+            this.currentTab = 3
+        }
     }
 }
 </script>
 
 <style scoped>
-#main-view {
-    max-width: 900px;
-}
 </style>

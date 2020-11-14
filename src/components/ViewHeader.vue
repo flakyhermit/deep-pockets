@@ -1,8 +1,8 @@
 <!-- ViewHeader.vue - The main page header -->
 <template>
-  <div id="view-header">
-    <div id="header-title">{{ title }}</div>
-    <div>{{ description }}</div>
+  <div id="view-header" class="container my-4">
+    <div id="header-title" class="has-text-primary is-size-4 has-text-weight-bold">{{ title }}</div>
+    <div id="header-description" class="has-text-grey">{{ description }}</div>
   </div>
 </template>
 
@@ -19,14 +19,5 @@ export default {
 </script>
 
 <style scoped>
-#view-header {
-    background-color: #3f4b73;
-    padding: 10px 0 20px 0;
-    color: white;
-}
-#header-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 2px;
-}
+
 </style>

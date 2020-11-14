@@ -8,3 +8,6 @@ Ridiculously simple expense-tracking for Gen-Z kids
 * Colors
 ** Midnight blue
 #2d2d86
+
+* Ideas
+** Sort expenses in their decreasing order
