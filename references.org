@@ -1,0 +1,10 @@
+
+* Info
+** Title
+Deep Pockets
+** Description
+Ridiculously simple expense-tracking for Gen-Z kids
+
+* Colors
+** Midnight blue
+#2d2d86
