@@ -3,7 +3,7 @@
 	<section>
 		<b-tabs position="is-centered has-text-weight-semibold" animated>
 			<b-tab-item label="OVERVIEW">
-				<SummaryView></SummaryView>
+				<SummaryView :netAmounts="netAmounts"></SummaryView>
 			</b-tab-item>
 			<b-tab-item label="TIMELINE">
 				<HistoryView :dataSource="entries"></HistoryView>
@@ -35,16 +35,15 @@ export default {
 	},
 	data: () => {
 		return {
-            isComponentModalActive: false,
             entries: [ 
-                { id: 1, timestamp: '12321321', amount: 446, category: 'A', note: ''},
-                { id: 2, timestamp: '12321321', amount: 200, category: 'C', note: ''},
-                { id: 3, timestamp: '12321321', amount: 200, category: 'A', note: ''},
-                { id: 4, timestamp: '12321321', amount: 200, category: 'B', note: ''},
-                { id: 5, timestamp: '12321321', amount: 233, category: 'A', note: ''},
-                { id: 6, timestamp: '12321321', amount: 200, category: 'B', note: ''}
+                { id: 1, timestamp: '12321321', amount: 446, category: 'Food', note: ''},
+                { id: 2, timestamp: '12321321', amount: 200, category: 'Entertainment', note: ''},
+                { id: 3, timestamp: '12321321', amount: 200, category: 'Food', note: ''},
+                { id: 4, timestamp: '12321321', amount: 200, category: 'Entertainment', note: ''},
+                { id: 5, timestamp: '12321321', amount: 233, category: 'Misc', note: ''},
+                { id: 6, timestamp: '12321321', amount: 200, category: 'Food', note: ''}
             ],
-            categories: ['A', 'B', 'C']
+            categories: ['Food', 'Entertainment', 'Misc']
         }
 	},
 	computed: {
@@ -59,7 +58,8 @@ export default {
                     }
                 }
                 let amountObj = {}
-                amountObj[category] = curAmount
+                amountObj['category'] = category
+                amountObj['amount'] = curAmount
                 netAmounts.push(amountObj)
             }
             return netAmounts

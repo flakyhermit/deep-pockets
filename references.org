@@ -13,5 +13,5 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** Sort expenses in their decreasing order
 
 * To-do
-** Add new entries to database
-** Calculate net-amounts for all categories
+** TODO Add new entries to database
+** DONE Calculate net-amounts for all categories
