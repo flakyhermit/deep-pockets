@@ -1,0 +1,108 @@
+{ 
+    "entries": [
+        {
+            "id": 1,
+            "timestamp": "1605417818305",
+            "category": "entertainment",
+            "amount": 2400,
+            "note": ""
+        },
+        {
+            "id": 2,
+            "timestamp": "1605417888305",
+            "category": "miscellaneous",
+            "amount": 150,
+            "note": "Taxi-fare for hospital visit"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        }, {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        },
+        {
+            "id": 3,
+            "timestamp": "1605415288305",
+            "category": "food",
+            "amount": 278,
+            "note": "Ordered biryani for lunch"
+        }
+    ]
+}   

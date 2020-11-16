@@ -7,35 +7,35 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   sodipodi:docname="wireframe.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
-   id="svg8"
-   version="1.1"
-   viewBox="0 0 210 297"
+   width="210mm"
    height="297mm"
-   width="210mm">
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   sodipodi:docname="wireframe.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
-     inkscape:window-maximized="1"
-     inkscape:window-y="0"
-     inkscape:window-x="0"
-     inkscape:window-height="993"
-     inkscape:window-width="1920"
-     showguides="true"
-     showgrid="false"
-     inkscape:document-rotation="0"
-     inkscape:current-layer="layer1"
-     inkscape:document-units="mm"
-     inkscape:cy="197.44492"
-     inkscape:cx="-2433.978"
-     inkscape:zoom="0.7"
-     inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
-     borderopacity="1.0"
-     bordercolor="#666666"
+     id="base"
      pagecolor="#ffffff"
-     id="base" />
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-556.83004"
+     inkscape:cy="198.04283"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     showguides="true"
+     inkscape:window-width="1914"
+     inkscape:window-height="1051"
+     inkscape:window-x="0"
+     inkscape:window-y="26"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -44,92 +44,314 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     id="layer1"
+     inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     inkscape:label="Layer 1">
+     id="layer1">
     <rect
-       y="-90.003189"
-       x="-910.1615"
-       height="285.56244"
-       width="507.81244"
+       style="opacity:0.856;fill:#ffffff;stroke:#1a1a1a;stroke-width:0.187561"
        id="rect833"
-       style="opacity:0.856;fill:#ffffff;stroke:#1a1a1a;stroke-width:0.187561" />
+       width="507.81244"
+       height="285.56244"
+       x="-910.1615"
+       y="-90.003189" />
     <rect
-       style="opacity:0.856;fill:#ffffff;stroke:#1a1a1a;stroke-width:0.135363"
-       id="rect838"
-       width="264.44797"
-       height="285.61462"
+       y="-89.325081"
        x="-788.47925"
-       y="-89.325081" />
+       height="285.61462"
+       width="264.44797"
+       id="rect838"
+       style="opacity:0.856;fill:#ffffff;stroke:#1a1a1a;stroke-width:0.135363" />
     <rect
-       y="-89.322746"
-       x="-910.23492"
-       height="32.932888"
-       width="507.31354"
+       style="opacity:0.856;fill:#000080;stroke:#1a1a1a;stroke-width:0.140171"
        id="rect844"
-       style="opacity:0.856;fill:#000080;stroke:#1a1a1a;stroke-width:0.140171" />
-    <text
-       id="text850"
-       y="-70.422623"
-       x="-864.19171"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.41299px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0897878"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';fill:#ffffff;stroke-width:0.0897878"
-         y="-70.422623"
-         x="-864.19171"
-         id="tspan848"
-         sodipodi:role="line">Deep Pockets</tspan></text>
+       width="507.31354"
+       height="32.932888"
+       x="-910.23492"
+       y="-89.322746" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0897878"
-       x="-499.44662"
-       y="-71.032127"
-       id="text854"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.41299px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0897878"
+       x="-864.19171"
+       y="-70.422623"
+       id="text850"><tspan
          sodipodi:role="line"
-         id="tspan852"
-         x="-499.44662"
+         id="tspan848"
+         x="-864.19171"
+         y="-70.422623"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans Bold';fill:#ffffff;stroke-width:0.0897878">Deep Pockets</tspan></text>
+    <text
+       id="text854"
+       y="-71.032127"
+       x="-499.44662"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.0897878"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#ffffff;stroke-width:0.0897878"
          y="-71.032127"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#ffffff;stroke-width:0.0897878">Ridiculously simple expense tracking for Gen-Z kids</tspan></text>
-    <rect
-       y="-56.377335"
-       x="-788.50311"
-       height="19.442713"
-       width="131.90688"
-       id="rect886"
-       style="opacity:0.856;fill:#ffffff;stroke:#1a1a1a;stroke-width:0.0873606" />
+         x="-499.44662"
+         id="tspan852"
+         sodipodi:role="line">Ridiculously simple expense tracking for Gen-Z kids</tspan></text>
     <rect
        style="opacity:0.856;fill:#ffffff;stroke:#1a1a1a;stroke-width:0.0873606"
-       id="rect888"
+       id="rect886"
        width="131.90688"
        height="19.442713"
-       x="-655.91418"
+       x="-788.50311"
        y="-56.377335" />
+    <rect
+       y="-56.377335"
+       x="-655.91418"
+       height="19.442713"
+       width="131.90688"
+       id="rect888"
+       style="opacity:0.856;fill:#ffffff;stroke:#1a1a1a;stroke-width:0.0873606" />
+    <text
+       id="text892"
+       y="-44.227184"
+       x="-722.69092"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.0897878"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#4d4d4d;stroke-width:0.0897878"
+         y="-44.227184"
+         x="-722.69092"
+         id="tspan890"
+         sodipodi:role="line">OVERVIEW</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:0.0897878"
-       x="-722.69092"
-       y="-44.227184"
-       id="text892"><tspan
-         sodipodi:role="line"
-         id="tspan890"
-         x="-722.69092"
-         y="-44.227184"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#4d4d4d;stroke-width:0.0897878">OVERVIEW</tspan></text>
-    <text
-       id="text896"
-       y="-44.228909"
-       x="-589.86255"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.0897878"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#999999;stroke-width:0.0897878"
-         y="-44.228909"
-         x="-589.86255"
+       x="-589.86255"
+       y="-44.228909"
+       id="text896"><tspan
+         sodipodi:role="line"
          id="tspan894"
-         sodipodi:role="line">TIMELINE</tspan></text>
+         x="-589.86255"
+         y="-44.228909"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05556px;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#999999;stroke-width:0.0897878">TIMELINE</tspan></text>
+    <rect
+       y="-9.4249783"
+       x="-392.89471"
+       height="36.307713"
+       width="446.90674"
+       id="rect28"
+       style="opacity:0.856;fill:#f2f2f2;stroke:#1a1a1a;stroke-width:0.105377" />
+    <text
+       id="text32"
+       y="12.499026"
+       x="-302.76001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868"
+         y="12.499026"
+         x="-302.76001"
+         id="tspan30"
+         sodipodi:role="line">28, Saturday</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       x="-160.65005"
+       y="12.309559"
+       id="text36"><tspan
+         sodipodi:role="line"
+         id="tspan34"
+         x="-160.65005"
+         y="12.309559"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#ffcc00;stroke-width:0.134868">Entertainment</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       x="4.3063245"
+       y="12.123155"
+       id="text40"><tspan
+         sodipodi:role="line"
+         id="tspan38"
+         x="4.3063245"
+         y="12.123155"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868">₹170</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       x="-371.73575"
+       y="12.119702"
+       id="text44"><tspan
+         sodipodi:role="line"
+         id="tspan42"
+         x="-371.73575"
+         y="12.119702"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868">1</tspan><tspan
+         id="tspan46"
+         sodipodi:role="line"
+         x="-371.73575"
+         y="30.019644"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868" /><tspan
+         id="tspan48"
+         sodipodi:role="line"
+         x="-371.73575"
+         y="47.69352"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868" /></text>
+    <rect
+       style="opacity:0.856;fill:#f2f2f2;stroke:#1a1a1a;stroke-width:0.105377"
+       id="rect63"
+       width="446.90674"
+       height="36.307713"
+       x="-392.89471"
+       y="26.882734" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       x="-302.76001"
+       y="48.80674"
+       id="text67"><tspan
+         sodipodi:role="line"
+         id="tspan65"
+         x="-302.76001"
+         y="48.80674"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868">28, Saturday</tspan></text>
+    <text
+       id="text71"
+       y="48.617271"
+       x="-171.64099"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#00ff00;stroke-width:0.134868"
+         y="48.617271"
+         x="-171.64099"
+         id="tspan69"
+         sodipodi:role="line">Recreation</tspan></text>
+    <text
+       id="text75"
+       y="48.430866"
+       x="4.3063245"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868"
+         y="48.430866"
+         x="4.3063245"
+         id="tspan73"
+         sodipodi:role="line">₹170</tspan></text>
+    <text
+       id="text83"
+       y="48.427414"
+       x="-371.73575"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868"
+         y="48.427414"
+         x="-371.73575"
+         id="tspan77"
+         sodipodi:role="line">2</tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868"
+         y="66.327354"
+         x="-371.73575"
+         sodipodi:role="line"
+         id="tspan79" /><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868"
+         y="84.001228"
+         x="-371.73575"
+         sodipodi:role="line"
+         id="tspan81" /></text>
+    <rect
+       style="opacity:0.856;fill:#f2f2f2;stroke:#1a1a1a;stroke-width:0.105377"
+       id="rect87"
+       width="446.90674"
+       height="36.307713"
+       x="-392.89471"
+       y="63.190449" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       x="-302.76001"
+       y="85.114449"
+       id="text91"><tspan
+         sodipodi:role="line"
+         id="tspan89"
+         x="-302.76001"
+         y="85.114449"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868">28, Saturday</tspan></text>
+    <text
+       id="text95"
+       y="84.924988"
+       x="-192.46303"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#d40000;stroke-width:0.134868"
+         y="84.924988"
+         x="-192.46303"
+         id="tspan93"
+         sodipodi:role="line">Misc</tspan></text>
+    <text
+       id="text99"
+       y="84.738579"
+       x="4.3063245"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868"
+         y="84.738579"
+         x="4.3063245"
+         id="tspan97"
+         sodipodi:role="line">₹170</tspan></text>
+    <text
+       id="text107"
+       y="84.73513"
+       x="-371.73575"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868"
+         y="84.73513"
+         x="-371.73575"
+         sodipodi:role="line"
+         id="tspan105">3</tspan></text>
+    <rect
+       y="99.498161"
+       x="-392.89471"
+       height="36.307713"
+       width="446.90674"
+       id="rect111"
+       style="opacity:0.856;fill:#f2f2f2;stroke:#1a1a1a;stroke-width:0.105377" />
+    <text
+       id="text115"
+       y="121.42216"
+       x="-302.76001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868"
+         y="121.42216"
+         x="-302.76001"
+         id="tspan113"
+         sodipodi:role="line">28, Saturday</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       x="-160.65005"
+       y="121.2327"
+       id="text119"><tspan
+         sodipodi:role="line"
+         id="tspan117"
+         x="-160.65005"
+         y="121.2327"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';fill:#ffcc00;stroke-width:0.134868">Entertainment</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       x="4.3063245"
+       y="121.0463"
+       id="text123"><tspan
+         sodipodi:role="line"
+         id="tspan121"
+         x="4.3063245"
+         y="121.0463"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';stroke-width:0.134868">₹170</tspan></text>
+    <text
+       transform="translate(0,108.92314)"
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.1391px;line-height:1.25;font-family:'Baskerville BT';-inkscape-font-specification:'Baskerville BT, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;white-space:pre;inline-size:19.9701;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.134868"
+       x="-371.73575"
+       y="12.119702"
+       id="text131"><tspan
+         x="-371.73575"
+         y="12.119702"><tspan>4</tspan></tspan></text>
   </g>
 </svg>

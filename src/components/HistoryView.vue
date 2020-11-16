@@ -1,9 +1,15 @@
 <!-- HistoryView.vue - For event history  -->
 <template>
 	<div id="history-view" class="container">
-        <div class="container is-size-small mb-1" v-for="(entry, index) in entries" v-bind:key="index">
-            <b-button class="py-5" expanded>Inverted</b-button>
-        </div>
+        <b-table 
+            :data="data" :columns="columns" 
+            :mobile-cards="false"
+            sticky-header
+            paginated
+            per-page="6"
+            pagination-position="bottom"
+            default-sort-direction="asc"
+            pagination-rounded></b-table>
 	</div>
 </template>
 
@@ -25,14 +31,33 @@ export default {
     components: {
 
     },
-    data: () => {
+    props: {
+        dataSource: Array
+    },
+    data() {
         return {
             entries: [1, 2, 4, 5, 6, 7, 7, 3],
-            categories: []
+            categories: [],
+            data: this.dataSource,
+            stickyHeaders: true,
+            columns: [
+                {
+                    field: 'category',
+                    label: 'Category',
+                },
+                {
+                    field: 'timestamp',
+                    label: 'Date',
+                    centered: true
+                },
+                {
+                    field: 'amount',
+                    label: 'Amount',
+                }
+            ]
         }
     },
-    computed: {
-        
+    methods: {
     }
 }
 </script>

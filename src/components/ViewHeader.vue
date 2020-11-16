@@ -1,6 +1,6 @@
 <!-- ViewHeader.vue - The main page header -->
 <template>
-  <div id="view-header" class="container my-4">
+  <div id="view-header" class="container has-text-centered my-4">
     <div id="header-title" class="has-text-primary is-size-4 has-text-weight-bold">{{ title }}</div>
     <div id="header-description" class="has-text-grey">{{ description }}</div>
   </div>
