@@ -39,7 +39,7 @@
 
             <footer class="modal-card-foot">
                 <button class="button" type="button" @click="$emit('close')">Close</button>
-                <button class="button is-primary">Add Entry</button>
+                <button class="button is-primary">ADD</button>
             </footer>
         </div>
     </form>

@@ -1,11 +1,24 @@
-<!-- DataStore.vue - For event history  -->
+<!-- DataView.vue - For selections  -->
 <template>
-    <div id="listeners">
-        <div v-on:addentry="addEntry($event)"></div>
-    </div>
+	<section>
+		<b-tabs position="is-centered has-text-weight-semibold" animated>
+			<b-tab-item label="OVERVIEW">
+				<SummaryView></SummaryView>
+			</b-tab-item>
+			<b-tab-item label="TIMELINE">
+				<HistoryView :dataSource="entries"></HistoryView>
+			</b-tab-item>
+			<!-- <b-tab-item label="OPTIONS">
+				<ConfigView></ConfigView>
+			</b-tab-item> -->
+		</b-tabs>
+	</section>
 </template>
-
+	
 <script>
+import SummaryView from './SummaryView.vue'
+import HistoryView from './HistoryView.vue'
+
 function Entry(id, amount, category, note)  {
     this.id = id
     this.timestamp = new Date()
@@ -15,24 +28,26 @@ function Entry(id, amount, category, note)  {
 }
 
 export default {
-    name: 'DataView',
-    components: {
-
-    },
-    data: () => {
-        return {
+	name: 'DataView',
+	components: {
+		SummaryView,
+		HistoryView,
+	},
+	data: () => {
+		return {
+            isComponentModalActive: false,
             entries: [ 
-                { id: 1, timestamp: '12321321', amount: 200, category: 'A', note: ''},
+                { id: 1, timestamp: '12321321', amount: 446, category: 'A', note: ''},
                 { id: 2, timestamp: '12321321', amount: 200, category: 'C', note: ''},
                 { id: 3, timestamp: '12321321', amount: 200, category: 'A', note: ''},
                 { id: 4, timestamp: '12321321', amount: 200, category: 'B', note: ''},
-                { id: 5, timestamp: '12321321', amount: 200, category: 'A', note: ''},
+                { id: 5, timestamp: '12321321', amount: 233, category: 'A', note: ''},
                 { id: 6, timestamp: '12321321', amount: 200, category: 'B', note: ''}
             ],
             categories: ['A', 'B', 'C']
         }
-    },
-    computed: {
+	},
+	computed: {
         netAmounts: function() {
             let netAmounts = []
             for(let category of this.categories) {
@@ -50,8 +65,8 @@ export default {
             return netAmounts
         }
     },
-    methods: {
-        saveData(data) {
+	methods: { 
+		saveData(data) {
             localStorage.setItem("deep-p-data", JSON.stringify(data))
         },
         addEntry(event) {
@@ -102,6 +117,9 @@ export default {
             }    
             return idArray[length-1] + 1
         }
-    }
+	}
 }
 </script>
+
+<style scoped>
+</style>

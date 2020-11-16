@@ -1,7 +1,7 @@
 <template>
     <div id="main-view" class="has-navbar-fixed-bottom">
-        <ViewHeader></ViewHeader>
-        <TabView></TabView>
+        <HeaderView></HeaderView>
+        <DataView></DataView>
         <b-modal 
             v-model="isComponentModalActive"
             has-modal-card
@@ -14,44 +14,34 @@
             </template>
         </b-modal>
         <b-navbar fixed-bottom centered transparent spaced>
-                <template slot="start">
-                    <b-navbar-item tag="div">
-                        <div class="buttons">
-                            <a class="button is-primary is-light is-rounded">
-                                <strong>  Settings  </strong>
-                            </a>
-                            <a class="button is-primary is-expanded is-large is-rounded" @click="isComponentModalActive = true">
-                                <strong>+</strong>
-                            </a>
-                            <a class="button is-primary is-light is-rounded" @click="logger('logg')">
-                                <strong>Category</strong>
-                            </a>
-                        </div>
-            </b-navbar-item>
-        </template>
+            <template slot="start">
+                <b-navbar-item tag="div">
+                    <div class="buttons">
+                        <a class="button is-primary is-medium" @click="isComponentModalActive = true">
+                            ADD NEW ENTRY
+                        </a>
+                    </div>
+                </b-navbar-item>
+            </template>
         </b-navbar>
-        </div>
+    </div>
 </template>
 
 <script>
-import ViewHeader from './ViewHeader.vue'
-import TabView from './TabView.vue'
+import HeaderView from './HeaderView.vue'
+import DataView from './DataView.vue'
 import ModalForm from './AddModal.vue'
+
 export default {
     name: 'MainView',
     components: {
-        ViewHeader,
-        TabView,
+        HeaderView,
+        DataView,
         ModalForm
     },
     data: () => {
-         return {
-             isComponentModalActive: false,
-        }
-    },
-    methods: {
-        logger(par) {
-            console.log(par)
+        return {
+            isComponentModalActive: false,
         }
     }
 }

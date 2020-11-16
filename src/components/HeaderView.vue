@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'ViewHeader',
+  name: 'HeaderView',
   data: () => {
     return {
       title: 'Deep Pockets',

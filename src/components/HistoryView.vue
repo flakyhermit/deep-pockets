@@ -14,18 +14,6 @@
 </template>
 
 <script>
-// class Entry {
-//     Entry(amount, category=0, note='')  {
-//         // this.id = 
-//         this.timestamp = new Date()
-//         this.amount = amount
-//         this.category = category
-//         this.note = note
-//     }
-//     getDate(id) {
-//         return this.timestamp.toTimeString()
-//     }
-// }
 export default {
     name: 'HistoryView',
     components: {
