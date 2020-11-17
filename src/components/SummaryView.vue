@@ -1,12 +1,13 @@
 <template>
   <div id="summary-view" class="container">
-    <div class="notification is-primary is-light summary-entry" v-for="(categoryAmount, index) in netAmounts" v-bind:key="index">
+    <div id="summary-entry" class="box is-primary is-light mb-2 px-5" v-for="(entry, index) in sums" v-bind:key="index">
       <div class="level is-mobile">
-        <div class="level-left has-text-weight-semibold">
-          {{ categoryAmount.category }}
+        <div class="level-left  has-text-weight-medium is-size-5">
+          {{ entry.category }}
         </div>
-        <div class="level-right">
-          {{ categoryAmount.amount }}
+        <div class="level-right has-text-weight-semibold is-size-4 has-text-primary">
+          <span>₹</span> 
+          <span class="">{{ entry.amount }}</span>
         </div>
       </div>
     </div>
@@ -19,17 +20,17 @@ export default {
     components: {
     },
     props: {
-      netAmounts: Array
+      sums: Array
     },
-    data: () =>  { return { entries: ['Entertainment', 'Food & Beverages', 'Transporation', 'Recreation', 'Misc'] } }
+    data: () =>  { 
+      return { 
+        } 
+    }
 }
 </script>
 
 <style scoped>
 #summary-view {
-  max-width: 800px;
-}
-.summary-entry{
-  margin: 5px;
+  max-width: 700px;
 }
 </style>
