@@ -10,7 +10,7 @@
           <span class="has-text-weight-semibold is-size-4"> {{ entry.amount }}</span>
         </div>
       </div>
-    </div>2
+    </div>
   </div>
 </template>
 
