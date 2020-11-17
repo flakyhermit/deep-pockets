@@ -13,8 +13,8 @@
       aria-role="dialog"
       aria-modal
     >
-      <template #default="props">
-        <modal-form @close="props.close"></modal-form>
+      <template>
+        <modal-form @add-entry-details="recordEntry" @close="isComponentModalActive = false"></modal-form>
       </template>
     </b-modal>
   </div>
@@ -35,11 +35,17 @@ export default {
   data: function() {
     return {
       isComponentModalActive: false,
+      temp: 0
     };
   },
   methods: {
     invokeModal: function() {
       this.isComponentModalActive = !this.isComponentModalActive;
+    },
+    recordEntry(am, cat) {
+        this.temp = am
+        console.log(this.temp + ' ' + cat)
+        this.isComponentModalActive = false
     }
   }
 };
