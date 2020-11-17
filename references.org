@@ -15,3 +15,10 @@ Ridiculously simple expense-tracking for Gen-Z kids
 * To-do
 ** TODO Add new entries to database
 ** DONE Calculate net-amounts for all categories
+** DONE Add categories
+** DONE Event listeners in JavaScript, without HTML tag attachments
+
+* Events
+** DONE add-entry-button-click
+** TODO add-entry
+** TODO add-category

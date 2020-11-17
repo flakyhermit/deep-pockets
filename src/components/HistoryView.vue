@@ -1,51 +1,61 @@
 <!-- HistoryView.vue - For event history  -->
 <template>
-	<div id="history-view" class="container">
-        <b-table 
-            :data="data" :columns="columns" 
-            :mobile-cards="false"
-            sticky-header
-            paginated
-            per-page="6"
-            pagination-position="bottom"
-            default-sort-direction="asc"
-            pagination-rounded></b-table>
-	</div>
+  <div id="history-view" class="container">
+    <b-table
+      :data="entries"
+      :mobile-cards="false"
+      paginated
+      per-page="9"
+      scrollable
+      hoverable
+      pagination-position="bottom"
+      default-sort-direction="asc"
+    >
+      <b-table-column field="id" label="ID" width="40" numeric v-slot="props">
+        {{ props.row.id }}
+      </b-table-column>
+
+      <b-table-column field="category" label="Category" v-slot="props">
+        <span class="tag is-medium is-primary is-light has-text-weight-medium">
+          {{ props.row.category }}
+        </span>
+      </b-table-column>
+      <b-table-column field="date" label="Date" v-slot="props">
+        <span>
+          {{ new Date(props.row.timestamp).toLocaleString() }}
+        </span>
+      </b-table-column>
+      <b-table-column field="amount" label="Amount" v-slot="props">
+        ₹
+        <span class="is-size-5">
+          {{ props.row.amount }}
+        </span>
+      </b-table-column>
+    </b-table>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'HistoryView',
-    components: {
-
-    },
-    props: {
-        dataSource: Array
-    },
-    data() {
-        return {
-            entries: [1, 2, 4, 5, 6, 7, 7, 3],
-            categories: [],
-            data: this.dataSource,
-            stickyHeaders: true,
-            columns: [
-                {
-                    field: 'category',
-                    label: 'Category',
-                },
-                {
-                    field: 'timestamp',
-                    label: 'Date',
-                    centered: true
-                },
-                {
-                    field: 'amount',
-                    label: 'Amount',
-                }
-            ]
-        }
-    },
-    methods: {
-    }
-}
+  name: "HistoryView",
+  components: {},
+  props: {
+    data: Array,
+  },
+  data() {
+    return {
+      stickyHeaders: true,
+      entries: this.data,
+    };
+  },
+  computed: {
+    dressedData: () => {},
+  },
+};
 </script>
+
+<style scoped>
+#history-view {
+  max-width: 700px;
+}
+</style>
