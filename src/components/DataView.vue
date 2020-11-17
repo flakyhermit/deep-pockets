@@ -3,10 +3,12 @@
 	<section>
 		<b-tabs position="is-centered has-text-weight-semibold" animated>
 			<b-tab-item label="OVERVIEW">
-				<SummaryView :netAmounts="netAmounts"></SummaryView>
+				<SummaryView :sums="netAmounts"></SummaryView>
+                <!-- <b-input v-model="categoryInput"></b-input>
+                <b-button @click="addCategory(categoryInput)">Add category</b-button> -->
 			</b-tab-item>
 			<b-tab-item label="TIMELINE">
-				<HistoryView :dataSource="entries"></HistoryView>
+				<HistoryView :data="entries"></HistoryView>
 			</b-tab-item>
 			<!-- <b-tab-item label="OPTIONS">
 				<ConfigView></ConfigView>
@@ -35,22 +37,26 @@ export default {
 	},
 	data: () => {
 		return {
+            categoryInput: '',
             entries: [ 
-                { id: 1, timestamp: '12321321', amount: 446, category: 'Food', note: ''},
-                { id: 2, timestamp: '12321321', amount: 200, category: 'Entertainment', note: ''},
-                { id: 3, timestamp: '12321321', amount: 200, category: 'Food', note: ''},
-                { id: 4, timestamp: '12321321', amount: 200, category: 'Entertainment', note: ''},
-                { id: 5, timestamp: '12321321', amount: 233, category: 'Misc', note: ''},
-                { id: 6, timestamp: '12321321', amount: 200, category: 'Food', note: ''}
+                { id: 1, timestamp: 1605590911586, amount: 446, category: 'Food', note: ''},
+                { id: 2, timestamp: 1605590971486, amount: 200, category: 'Entertainment', note: ''},
+                { id: 3, timestamp: 1605590914486, amount: 200, category: 'Food', note: ''},
+                { id: 4, timestamp: 1605540916486, amount: 200, category: 'Entertainment', note: ''},
+                { id: 5, timestamp: 1605590951486, amount: 233, category: 'Misc', note: ''},
+                { id: 6, timestamp: 1605520911486, amount: 200, category: 'Food', note: ''},
+                { id: 7, timestamp: 1605590911486, amount: 200, category: 'Food', note: ''},
+                { id: 8, timestamp: 1605594811486, amount: 200, category: 'Recreation', note: ''},
+                { id: 9, timestamp: 1605590993486, amount: 200, category: 'Recreation', note: ''},
+                { id: 10, timestamp: 1605590941486, amount: 200, category: 'Entertainment', note: ''}
             ],
-            categories: ['Food', 'Entertainment', 'Misc']
+            categories: ['Food', 'Entertainment', 'Misc','Recreation']
         }
 	},
 	computed: {
         netAmounts: function() {
             let netAmounts = []
             for(let category of this.categories) {
-                console.log('HOOOR ' + category)
                 let curAmount = 0
                 for(let entry of this.entries) {
                     if(entry.category == category) {
@@ -66,6 +72,11 @@ export default {
         }
     },
 	methods: { 
+        // Helper functions
+        letterCapitalize(word) {
+            return (word[0].toUpperCase() + word.slice(1))
+        },
+        // Data functions
 		saveData(data) {
             localStorage.setItem("deep-p-data", JSON.stringify(data))
         },
@@ -81,10 +92,11 @@ export default {
             return entryObj
         },
         addCategory(name) {
-            if(name in this.categories) {
+            const capitalizedName = this.letterCapitalize(name)
+            if(capitalizedName in this.categories) {
                 return -1
             }
-            this.categories.push(name)
+            this.categories.push(capitalizedName)
         },
         removeCategory(name) {
             this.categories.splice(this.categories.indexOf(name), 1)
