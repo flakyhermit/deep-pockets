@@ -7,6 +7,7 @@
       paginated
       per-page="9"
       scrollable
+      bordered
       hoverable
       pagination-position="bottom"
       default-sort-direction="asc"
@@ -35,6 +36,7 @@
 </template>
 
 <script>
+
 export default {
   name: "HistoryView",
   components: {},

@@ -15,7 +15,8 @@ Ridiculously simple expense-tracking for Gen-Z kids
 * To-do
 ** DONE Add new entries to database
 ** TODO Filters
-** TODO Fix icons
+** DONE Add icons
+** DONE Fix icons
 ** DONE Calculate net-amounts for all categories
 ** DONE Add categories
 ** DONE Event listeners in JavaScript, without HTML tag attachments

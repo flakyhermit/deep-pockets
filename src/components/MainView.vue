@@ -8,11 +8,11 @@
       :destroy-on-hide="false"
       aria-role="dialog"
       aria-modal>
-      <template>
+      <template #default="props">
         <modal-form
           v-bind:categories="categories"
           @add-entry-details="recordEntry"
-          @close="isComponentModalActive = false"
+          @close="props.close"
         ></modal-form>
       </template>
     </b-modal>
