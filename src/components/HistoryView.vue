@@ -11,21 +11,20 @@
       pagination-position="bottom"
       default-sort-direction="asc"
     >
-      <b-table-column field="id" label="ID" width="40" numeric v-slot="props">
-        {{ props.row.id }}
-      </b-table-column>
+      <!-- <b-table-column field="id" label="ID" width="40" numeric v-slot="props">
+      </b-table-column> -->
 
       <b-table-column field="category" label="Category" v-slot="props">
         <span class="tag is-medium is-primary is-light has-text-weight-medium">
           {{ props.row.category }}
         </span>
       </b-table-column>
-      <b-table-column field="date" label="Date" v-slot="props">
+      <b-table-column field="timestamp" label="Date" v-slot="props" sortable>
         <span>
           {{ new Date(props.row.timestamp).toLocaleString() }}
         </span>
       </b-table-column>
-      <b-table-column field="amount" label="Amount" v-slot="props">
+      <b-table-column field="amount" label="Amount" v-slot="props" sortable>
         ₹
         <span class="is-size-5">
           {{ props.row.amount }}

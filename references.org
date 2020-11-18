@@ -13,12 +13,14 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** Sort expenses in their decreasing order
 
 * To-do
-** TODO Add new entries to database
+** DONE Add new entries to database
+** TODO Filters
+** TODO Fix icons
 ** DONE Calculate net-amounts for all categories
 ** DONE Add categories
 ** DONE Event listeners in JavaScript, without HTML tag attachments
 
 * Events
 ** DONE add-entry-button-click
-** TODO add-entry
+** DONE add-entry
 ** TODO add-category
