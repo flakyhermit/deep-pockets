@@ -15,13 +15,16 @@ Ridiculously simple expense-tracking for Gen-Z kids
 * To-do
 ** DONE Add new entries to database
 ** TODO Filters
+** DONE Persistent data storage in localStorage
 ** DONE Add icons
+** TODO Deletions
 ** DONE Fix icons
 ** DONE Calculate net-amounts for all categories
 ** DONE Add categories
+** DONE Toasts
 ** DONE Event listeners in JavaScript, without HTML tag attachments
 
 * Events
 ** DONE add-entry-button-click
 ** DONE add-entry
-** TODO add-category
+** DONE add-category

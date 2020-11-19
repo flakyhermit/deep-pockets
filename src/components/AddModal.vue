@@ -20,7 +20,7 @@
           </b-input>
         </b-field>
 
-        <b-field label="Category">
+        <b-field grouped label="Category">
           <b-select
             placeholder="Category"
             icon="tag"
@@ -35,6 +35,17 @@
               {{ entry }}
             </option>
           </b-select>
+          <b-field>
+            <b-input
+              type="text"
+              v-model="newCategory"
+              min="1"
+              max="20"
+            ></b-input>
+            <b-button class="is-warning" @click="emitAddCategory"
+              >Add Category</b-button
+            >
+          </b-field>
         </b-field>
 
         <b-field label="Note">
@@ -42,27 +53,25 @@
             type="text"
             icon="sticky-note"
             maxlength="50"
-            placeholder="Add a note"
+            placeholder="Add an optional note"
             v-model="entryDetails.note"
           >
           </b-input>
         </b-field>
-
       </section>
 
       <footer class="modal-card-foot">
         <button class="button" type="button" @click="$emit('close')">
           Close
         </button>
-        <button class="button is-success" >
-          ADD
-        </button>
+        <button class="button is-success">ADD</button>
       </footer>
     </div>
   </form>
 </template>
 
 <script>
+
 export default {
   props: {
     categories: Array,
@@ -74,14 +83,39 @@ export default {
         category: "",
         note: "",
       },
+      newCategory: "",
     };
   },
   methods: {
+    toastDo: function(message, type) {
+      let typeAssign = type ? type : "is-dark"
+      this.$buefy.toast.open({
+        message: message,
+        duration: 1000,
+        position: "is-bottom",
+        type: typeAssign
+      })
+    },
     emitAddEntryEvent: function () {
       this.$emit("add-entry-details", this.entryDetails);
-      this.entryDetails.amount = ""
-      this.entryDetails.category = ""
-      this.entryDetails.note = ""
+      this.entryDetails.amount = "";
+      this.entryDetails.category = "";
+      this.entryDetails.note = "";
+      this.toastDo('Entry added!', "is-success")
+    },
+    // Helper functions
+    letterCapitalize: function (word) {
+      return word[0].toUpperCase() + word.slice(1);
+    },
+    emitAddCategory: function () {
+      let capitalizedName = this.letterCapitalize(this.newCategory);
+      if (this.categories.indexOf(capitalizedName) != -1) {
+        this.toastDo(`Category already exists!`)
+      } else {
+        this.$emit("add-category", this.newCategory);
+        this.newCategory = ""
+        this.toastDo('Category added', "is-succ2ess")
+      }
     },
   },
 };

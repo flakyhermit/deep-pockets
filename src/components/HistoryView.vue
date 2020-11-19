@@ -2,7 +2,7 @@
 <template>
   <div id="history-view" class="container">
     <b-table
-      :data="entries"
+      :data="data"
       :mobile-cards="false"
       paginated
       per-page="9"
@@ -46,11 +46,7 @@ export default {
   data() {
     return {
       stickyHeaders: true,
-      entries: this.data,
     };
-  },
-  computed: {
-    dressedData: () => {},
   },
 };
 </script>

@@ -12,6 +12,7 @@
         <modal-form
           v-bind:categories="categories"
           @add-entry-details="recordEntry"
+          @add-category="addCategory"
           @close="props.close"
         ></modal-form>
       </template>
@@ -54,31 +55,29 @@ export default {
   },
   data: function () {
     return {
-      entries: [
-        {
-          timestamp: 1605590911586,
-          amount: 446,
-          category: "Food",
-          note: "",
-        },
-        {
-          timestamp: 1605590971486,
-          amount: 200,
-          category: "Entertainment",
-          note: "",
-        },
-        {
-          timestamp: 1605590914486,
-          amount: 200,
-          category: "Food",
-          note: "",
-        },
-      ],
-      categories: ["Food", "Entertainment", "Misc", "Recreation"],
+      entries: [],
+      categories: [],
 
       // Function altering variables
       isComponentModalActive: false,
     };
+  },
+  mounted: function() {
+    let dataString = localStorage.getItem("deep-pockets-data")
+    if (dataString)
+      this.entries = JSON.parse(dataString)
+    if (localStorage.deepPocketsCategories)
+      this.categories = JSON.parse(localStorage.deepPocketsCategories).categories
+  },
+  watch: {
+    entries: function () {
+      let dataString = JSON.stringify(this.entries)
+      localStorage.setItem("deep-pockets-data", dataString)
+    },
+    categories: function() {
+      let categoryObject = { categories: this.categories }
+      localStorage.deepPocketsCategories = JSON.stringify(categoryObject)
+    }
   },
   computed: {
     netAmounts: function () {
@@ -99,25 +98,13 @@ export default {
     },
   },
   methods: {
-    // Helper functions
-    letterCapitalize(word) {
-      return word[0].toUpperCase() + word.slice(1);
-    },
-    // Data functions
-    saveData(data) {
-      localStorage.setItem("deep-p-data", JSON.stringify(data));
-    },
     addEntry(entry) {
       // Validate category
       let entryObj = new Entry(Number(entry.amount), entry.category, entry.note);
       this.entries.push(entryObj)
     },
     addCategory(name) {
-      const capitalizedName = this.letterCapitalize(name);
-      if (capitalizedName in this.categories) {
-        return -1;
-      }
-      this.categories.push(capitalizedName);
+      this.categories.push(name);
     },
     removeCategory(name) {
       this.categories.splice(this.categories.indexOf(name), 1);
@@ -126,30 +113,6 @@ export default {
       if (name in this.categories) this.categories.indexOf(curName);
       this.categories.push(newName); // Correct this
       // Keep the position of the category the same
-    },
-    fetchData() {
-      var dataString = localStorage.getItem("deep-p-data");
-      var dataObj = JSON.parse(dataString);
-      return dataObj;
-    },
-    IdGenerator() {
-      let idArray = [];
-      let entry = 0;
-      for (entry in this.entries) {
-        idArray.push(entry.id);
-      }
-      if (idArray.length == 0) {
-        return 1;
-      }
-      idArray = idArray.sort((a, b) => {
-        return a - b;
-      });
-      for (let i = 0; i < idArray.length; i++) {
-        if (idArray[i + 1] - idArray[i] >= 1) {
-          return idArray[i] + 1;
-        }
-      }
-      return idArray[length - 1] + 1;
     },
     // Event listener calls
     recordEntry(entryDetails) {
