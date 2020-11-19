@@ -1,6 +1,6 @@
 <template>
   <div id="summary-view" class="container">
-    <div id="summary-entry" class="box is-primary is-light mb-2 px-5" v-for="(entry, index) in sums" v-bind:key="index">
+    <div id="summary-entry" class="box is-primary is-light mb-2 px-5" v-for="(entry, index) in filteredSums" v-bind:key="index">
       <div class="level is-mobile">
         <div class="level-left  has-text-weight-medium is-size-5">
           {{ entry.category }}
@@ -25,6 +25,16 @@ export default {
     data: () =>  { 
       return { 
         } 
+    },
+    computed: {
+      filteredSums: function() {
+        let tempSums = []
+        for (let sum of this.sums) {
+          if (sum.amount > 0)
+            tempSums.push(sum)
+        }
+        return tempSums
+      }
     }
 }
 </script>
