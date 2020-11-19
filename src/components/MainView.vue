@@ -25,7 +25,9 @@
         <SummaryView :sums="netAmounts"></SummaryView>
       </b-tab-item>
       <b-tab-item label="TIMELINE">
-        <HistoryView :data="entries"></HistoryView>
+        <HistoryView :data="entries"
+         @delete-entries="deleteEntries"
+        ></HistoryView>
       </b-tab-item>
     </b-tabs>
 
@@ -105,6 +107,14 @@ export default {
     },
     addCategory(name) {
       this.categories.push(name);
+    },
+    deleteEntries(entries) {
+      for (let entry of entries) {
+        for (let i = 0; i < this.entries.length; i++) {
+          if (entry.timestamp == this.entries[i].timestamp)
+            this.entries.splice(i, 1)
+        }
+      }
     },
     removeCategory(name) {
       this.categories.splice(this.categories.indexOf(name), 1);

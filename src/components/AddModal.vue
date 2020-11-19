@@ -13,7 +13,6 @@
             min="1"
             size="is-medium"
             placeholder="Enter the amount"
-            icon="credit-card"
             v-model="entryDetails.amount"
             required
           >

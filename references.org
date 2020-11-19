@@ -17,7 +17,7 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** TODO Filters
 ** DONE Persistent data storage in localStorage
 ** DONE Add icons
-** TODO Deletions
+** DONE Deletions
 ** DONE Fix icons
 ** DONE Calculate net-amounts for all categories
 ** DONE Add categories
