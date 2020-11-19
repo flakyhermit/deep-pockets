@@ -15,6 +15,9 @@ Ridiculously simple expense-tracking for Gen-Z kids
 * To-do
 ** DONE Add new entries to database
 ** TODO Filters
+*** Filter by database
+*** By min-max amounts
+*** By category
 ** DONE Persistent data storage in localStorage
 ** DONE Add icons
 ** DONE Deletions

@@ -1,7 +1,10 @@
 <!-- HistoryView.vue - For event history  -->
 <template>
   <div id="history-view" class="container">
+    <b-field group-multiline>
+      <p class="has-text-weight-medium">Filters</p>
 
+    </b-field>
     <b-table
       :data="data"
       :mobile-cards="false"
@@ -77,6 +80,12 @@ export default {
     deleteChecked() {
       this.$emit('delete-entries', this.checkedRows)
       this.checkedRows = []
+      this.$buefy.toast.open({
+        message: `Entries deleted`,
+        duration: 1000,
+        position: "is-bottom",
+        type: "is-success"
+      })
     }
   }
 };

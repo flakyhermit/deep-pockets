@@ -100,7 +100,7 @@ export default {
       this.entryDetails.amount = "";
       this.entryDetails.category = "";
       this.entryDetails.note = "";
-      this.toastDo('Entry added!', "is-success")
+      this.toastDo('Entry added', "is-success")
     },
     // Helper functions
     letterCapitalize: function (word) {
@@ -113,7 +113,7 @@ export default {
       } else {
         this.$emit("add-category", this.newCategory);
         this.newCategory = ""
-        this.toastDo('Category added', "is-succ2ess")
+        this.toastDo('Category added', "is-success")
       }
     },
   },

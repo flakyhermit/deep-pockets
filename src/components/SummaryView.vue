@@ -11,6 +11,7 @@
         </div>
       </div>
     </div>
+    <div v-if="filteredSums.length == 0" class="notification has-text-centered has-text-weight-medium is-success is-light">Wow, such empty!</div>
   </div>
 </template>
 
