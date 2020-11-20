@@ -24,8 +24,8 @@
       <b-tab-item label="OVERVIEW">
         <SummaryView :sums="netAmounts"></SummaryView>
       </b-tab-item>
-      <b-tab-item label="TIMELINE">
-        <HistoryView :data="entries"
+      <b-tab-item label="HISTORY">
+        <HistoryView :data="entries" :categories="categories"
          @delete-entries="deleteEntries"
         ></HistoryView>
       </b-tab-item>
@@ -115,14 +115,6 @@ export default {
             this.entries.splice(i, 1)
         }
       }
-    },
-    removeCategory(name) {
-      this.categories.splice(this.categories.indexOf(name), 1);
-    },
-    editCategory(curName, newName) {
-      if (name in this.categories) this.categories.indexOf(curName);
-      this.categories.push(newName); // Correct this
-      // Keep the position of the category the same
     },
     // Event listener calls
     recordEntry(entryDetails) {

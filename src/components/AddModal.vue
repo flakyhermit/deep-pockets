@@ -2,7 +2,9 @@
   <form @submit.prevent="emitAddEntryEvent">
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">New Entry</p>
+        <p class="modal-card-title is-size-5 has-text-weight-medium">
+          New Entry
+        </p>
         <button type="button" class="delete" @click="$emit('close')" />
       </header>
 
@@ -18,8 +20,8 @@
           >
           </b-input>
         </b-field>
-
-        <b-field grouped label="Category">
+        <b-field grouped >
+          <b-field label="Category">
           <b-select
             placeholder="Category"
             icon="tag"
@@ -34,16 +36,10 @@
               {{ entry }}
             </option>
           </b-select>
-          <b-field>
-            <b-input
-              type="text"
-              v-model="newCategory"
-              min="1"
-              max="20"
-            ></b-input>
-            <b-button class="is-warning" @click="emitAddCategory"
-              >Add Category</b-button
-            >
+          </b-field>
+          <b-field label="Add category">
+          <b-input type="text" v-model="newCategory" min="1" max="20"></b-input>
+          <b-button class="is-success" @click="emitAddCategory"><strong>+</strong></b-button>
           </b-field>
         </b-field>
 
@@ -70,7 +66,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     categories: Array,
@@ -86,21 +81,21 @@ export default {
     };
   },
   methods: {
-    toastDo: function(message, type) {
-      let typeAssign = type ? type : "is-dark"
+    toastDo: function (message, type) {
+      let typeAssign = type ? type : "is-dark";
       this.$buefy.toast.open({
         message: message,
         duration: 1000,
         position: "is-bottom",
-        type: typeAssign
-      })
+        type: typeAssign,
+      });
     },
     emitAddEntryEvent: function () {
       this.$emit("add-entry-details", this.entryDetails);
       this.entryDetails.amount = "";
       this.entryDetails.category = "";
       this.entryDetails.note = "";
-      this.toastDo('Entry added', "is-success")
+      this.toastDo("Entry added", "is-success");
     },
     // Helper functions
     letterCapitalize: function (word) {
@@ -109,11 +104,11 @@ export default {
     emitAddCategory: function () {
       let capitalizedName = this.letterCapitalize(this.newCategory);
       if (this.categories.indexOf(capitalizedName) != -1) {
-        this.toastDo(`Category already exists!`)
+        this.toastDo(`Category already exists!`);
       } else {
         this.$emit("add-category", this.newCategory);
-        this.newCategory = ""
-        this.toastDo('Category added', "is-success")
+        this.newCategory = "";
+        this.toastDo("Category added", "is-success");
       }
     },
   },

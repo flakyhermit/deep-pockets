@@ -1,12 +1,25 @@
 <!-- HistoryView.vue - For event history  -->
 <template>
   <div id="history-view" class="container">
-    <b-field group-multiline>
-      <p class="has-text-weight-medium">Filters</p>
-
+    <b-field class="notification is-light py-2 px-2">
+      <b-select icon="tag" placeholder="Filter by category" v-model="selectedCategory">
+        <option value="" class="is-color-grey">-</option>
+        <option
+          v-for="category in categories"
+          v-bind:key="category"
+          v-bind:value="category"
+        >
+          {{ category }}
+        </option>
+      </b-select>
+      <b-datepicker
+            placeholder="Select a date-range..."
+            range>
+        </b-datepicker>
+        <b-button @click="clearFilters" icon-left="times has-align-items-right">Clear All</b-button>
     </b-field>
     <b-table
-      :data="data"
+      :data="filteredEntries"
       :mobile-cards="false"
       paginated
       per-page="9"
@@ -38,28 +51,26 @@
         </span>
       </b-table-column>
       <template slot="bottom-left">
-      <b-field grouped class="container">
-      <button
-        class="button field"
-        @click="checkedRows = []"
-        :disabled="!checkedRows.length"
-      >
-        <b-icon icon="times"></b-icon>
-        <span>Clear</span>
-      </button>
-      <button
-        class="button field is-danger"
-        @click="deleteChecked"
-        :disabled="!checkedRows.length"
-      >
-        <b-icon icon="trash-alt"></b-icon>
-        <span>Delete</span>
-      </button>
-    </b-field>
-    </template>
+        <b-field grouped class="container">
+          <button
+            class="button field"
+            @click="checkedRows = []"
+            :disabled="!checkedRows.length"
+          >
+            <b-icon icon="times"></b-icon>
+            <span>Clear</span>
+          </button>
+          <button
+            class="button field is-danger"
+            @click="deleteChecked"
+            :disabled="!checkedRows.length"
+          >
+            <b-icon icon="trash-alt"></b-icon>
+            <span>Delete</span>
+          </button>
+        </b-field>
+      </template>
     </b-table>
-    
-     
   </div>
 </template>
 
@@ -69,25 +80,43 @@ export default {
   components: {},
   props: {
     data: Array,
+    categories: Array,
   },
   data() {
     return {
-      stickyHeaders: true,
+      dateRange: [],
       checkedRows: [],
+      selectedCategory: ''
     };
+  },
+  computed: {
+    filteredEntries: function() {
+      let filteredEntries = []
+      if (this.selectedCategory.length) {
+        for(let entry of this.data) {
+          if (entry.category == this.selectedCategory)
+            filteredEntries.push(entry)
+        }
+      }
+      else filteredEntries = this.data
+      return filteredEntries
+    }
   },
   methods: {
     deleteChecked() {
-      this.$emit('delete-entries', this.checkedRows)
-      this.checkedRows = []
+      this.$emit("delete-entries", this.checkedRows);
+      this.checkedRows = [];
       this.$buefy.toast.open({
         message: `Entries deleted`,
         duration: 1000,
         position: "is-bottom",
-        type: "is-success"
-      })
+        type: "is-success",
+      });
+    },
+    clearFilters() {
+      this.selectedCategory = ''
     }
-  }
+  },
 };
 </script>
 

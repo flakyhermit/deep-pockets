@@ -1,6 +1,6 @@
 <template>
   <div id="summary-view" class="container">
-    <div id="summary-entry" class="box is-primary is-light mb-2 px-5" v-for="(entry, index) in filteredSums" v-bind:key="index">
+    <div id="summary-entry" class="notification is-primary is-light mb-2 px-5" v-for="(entry, index) in filteredSums" v-bind:key="index">
       <div class="level is-mobile">
         <div class="level-left  has-text-weight-medium is-size-5">
           {{ entry.category }}
