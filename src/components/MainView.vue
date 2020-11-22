@@ -17,7 +17,6 @@
         ></modal-form>
       </template>
     </b-modal>
-    
     <HeaderView v-on:add-entry-button-click="isComponentModalActive = !isComponentModalActive"></HeaderView>
 
     <b-tabs position="is-centered has-text-weight-semibold" animated>

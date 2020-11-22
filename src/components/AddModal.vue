@@ -20,13 +20,15 @@
           >
           </b-input>
         </b-field>
-        <b-field grouped >
+        <b-field grouped>
           <b-field label="Category">
           <b-select
-            placeholder="Category"
-            icon="tag"
-            v-model="entryDetails.category"
+            placeholder="Select a category"
             required
+            v-model="entryDetails.category"
+            :disabled="!categories.length" 
+            expanded
+            icon="tag"
           >
             <option
               v-for="entry in categories"
@@ -38,7 +40,7 @@
           </b-select>
           </b-field>
           <b-field label="Add category">
-          <b-input type="text" v-model="newCategory" min="1" max="20"></b-input>
+          <b-input placeholder="New category name" type="text" v-model="newCategory" min="1" max="20"></b-input>
           <b-button class="is-success" @click="emitAddCategory" icon-left="plus"></b-button>
           </b-field>
         </b-field>
@@ -77,9 +79,9 @@ export default {
   data() {
     return {
       entryDetails: {
-        amount: "",
-        category: "",
-        note: "",
+        amount: null,
+        category: null,
+        note: null,
       },
       newCategory: "",
     };
@@ -96,9 +98,9 @@ export default {
     },
     emitAddEntryEvent: function () {
       this.$emit("add-entry-details", this.entryDetails);
-      this.entryDetails.amount = "";
-      this.entryDetails.category = "";
-      this.entryDetails.note = "";
+      this.entryDetails.amount = null;
+      this.entryDetails.category = null;
+      this.entryDetails.note = null;
       this.toastDo("Entry added", "is-success");
     },
     // Helper functions

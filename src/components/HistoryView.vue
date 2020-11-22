@@ -1,24 +1,30 @@
 <!-- HistoryView.vue - For event history  -->
 <template>
   <div id="history-view" class="container">
-    <b-field class="notification is-light py-2 px-2">
-      <b-select icon="tag" placeholder="Filter by category" v-model="selectedCategory">
-        <option
-          v-for="category in categories"
-          v-bind:key="category"
-          v-bind:value="category"
-        >
-          {{ category }}
-        </option>
-      </b-select>
-      <b-button @click="selectedCategory = ''" :disabled="!selectedCategory.length" icon-left="times has-align-items-right"></b-button>
+    <div class="columns is-light">
+      <b-field class="column is-one-third">
+        <b-select icon="tag" placeholder="Filter by category" v-model="selectedCategory" expanded 
+            :disabled="!categories.length">
+          <option
+            v-for="category in categories"
+            v-bind:key="category"
+            v-bind:value="category"
+          >
+            {{ category }}
+          </option>
+        </b-select>
+        <b-button @click="selectedCategory = ''" :disabled="!selectedCategory.length" icon-left="times"></b-button>
+      </b-field>
+      <b-field class="column is-two-thirds">
       <b-datepicker
             placeholder="Select a date-range..."
             v-model="dateRange"
-            range>
+            range
+            expanded>
         </b-datepicker>
         <b-button @click="dateRange = null" :disabled="!dateRange" icon-left="times"></b-button>
-    </b-field>
+      </b-field>
+    </div>
     <b-table
       :data="filteredEntries"
       :mobile-cards="false"
