@@ -3,7 +3,6 @@
   <div id="history-view" class="container">
     <b-field class="notification is-light py-2 px-2">
       <b-select icon="tag" placeholder="Filter by category" v-model="selectedCategory">
-        <option value="" class="is-color-grey">-</option>
         <option
           v-for="category in categories"
           v-bind:key="category"
@@ -12,11 +11,13 @@
           {{ category }}
         </option>
       </b-select>
+      <b-button @click="selectedCategory = ''" icon-left="times has-align-items-right"></b-button>
       <b-datepicker
             placeholder="Select a date-range..."
+            v-model="dateRange"
             range>
         </b-datepicker>
-        <b-button @click="clearFilters" icon-left="times has-align-items-right">Clear All</b-button>
+        <b-button @click="dateRange = null" icon-left="times has-align-items-right"></b-button>
     </b-field>
     <b-table
       :data="filteredEntries"
@@ -92,13 +93,28 @@ export default {
   computed: {
     filteredEntries: function() {
       let filteredEntries = []
-      if (this.selectedCategory.length) {
-        for(let entry of this.data) {
-          if (entry.category == this.selectedCategory)
+      for(let entry of this.data) {
+        if (this.selectedCategory.length) {
+          if (entry.category == this.selectedCategory) { // Category filter
+            if (this.dateRange != null) {
+              let timestampL = new Date(this.dateRange[0]).getTime()
+              let timestampH = new Date(this.dateRange[1]).getTime()
+              console.log(timestampH, ' ', timestampL)
+              if (timestampL < entry.timestamp && entry.timestamp < timestampH)
+                filteredEntries.push(entry)
+            }
+            else filteredEntries.push(entry)
+          }
+        }
+        else if (this.dateRange != null) {
+          let timestampL = new Date(this.dateRange[0]).getTime()
+          let timestampH = new Date(this.dateRange[1]).getTime()
+          console.log(timestampH, ' ', timestampL)
+          if (timestampL < entry.timestamp && entry.timestamp < timestampH)
             filteredEntries.push(entry)
         }
+        else filteredEntries.push(entry)
       }
-      else filteredEntries = this.data
       return filteredEntries
     }
   },
@@ -115,6 +131,7 @@ export default {
     },
     clearFilters() {
       this.selectedCategory = ''
+      this.dateRange = null
     }
   },
 };

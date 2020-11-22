@@ -18,10 +18,10 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** TODO Import/export
 ** TODO Fix header
 ** TODO Floating add button
+** TOOD Show categories only if there are entries in there
 ** TODO Filters
 - [ ] Filter by database
-- [ ] min-max amounts
-- [ ] category
+- [X] category
 ** DONE Persistent data storage in localStorage
 ** DONE Add icons
 ** DONE Deletions
