@@ -39,7 +39,7 @@
           </b-field>
           <b-field label="Add category">
           <b-input type="text" v-model="newCategory" min="1" max="20"></b-input>
-          <b-button class="is-success" @click="emitAddCategory"><strong>+</strong></b-button>
+          <b-button class="is-success" @click="emitAddCategory" icon-left="plus"></b-button>
           </b-field>
         </b-field>
 
@@ -57,9 +57,13 @@
 
       <footer class="modal-card-foot">
         <button class="button" type="button" @click="$emit('close')">
-          Close
+          <b-icon icon="times"></b-icon>
+          <span>Close</span>
         </button>
-        <button class="button is-success">ADD</button>
+        <button class="button is-success">
+          <b-icon icon="check"></b-icon>
+          <span>ADD</span>
+        </button>
       </footer>
     </div>
   </form>

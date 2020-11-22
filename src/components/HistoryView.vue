@@ -17,7 +17,7 @@
             v-model="dateRange"
             range>
         </b-datepicker>
-        <b-button @click="dateRange = null" icon-left="times has-align-items-right"></b-button>
+        <b-button @click="dateRange = null" icon-left="times"></b-button>
     </b-field>
     <b-table
       :data="filteredEntries"
