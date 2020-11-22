@@ -81,7 +81,6 @@ export default {
   components: {},
   props: {
     data: Array,
-    categories: Array,
   },
   data() {
     return {
@@ -91,6 +90,14 @@ export default {
     };
   },
   computed: {
+    categories: function () {
+      let categories = []
+      for (let entry of this.data) {
+        if (categories.indexOf(entry.category) == -1) 
+          categories.push(entry.category)
+      }
+      return categories
+    },
     filteredEntries: function() {
       let filteredEntries = []
       for(let entry of this.data) {

@@ -25,7 +25,7 @@
         <SummaryView :sums="netAmounts"></SummaryView>
       </b-tab-item>
       <b-tab-item label="HISTORY">
-        <HistoryView :data="entries" :categories="categories"
+        <HistoryView :data="entries"
          @delete-entries="deleteEntries"
         ></HistoryView>
       </b-tab-item>
