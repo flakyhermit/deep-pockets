@@ -3,7 +3,7 @@
   <div id="history-view" class="container">
     <div class="columns is-light">
       <b-field class="column is-one-third">
-        <b-select icon="tag" placeholder="Filter by category" v-model="selectedCategory" expanded 
+        <b-select icon="tag" placeholder="Category" v-model="selectedCategory" expanded 
             :disabled="!categories.length">
           <option
             v-for="category in categories"
@@ -13,7 +13,7 @@
             {{ category }}
           </option>
         </b-select>
-        <b-button @click="selectedCategory = ''" :disabled="!selectedCategory.length" icon-left="times"></b-button>
+        <b-button @click="selectedCategory = null" :disabled="!selectedCategory" icon-left="times"></b-button>
       </b-field>
       <b-field class="column is-two-thirds">
       <b-datepicker
@@ -92,7 +92,7 @@ export default {
     return {
       dateRange: null,
       checkedRows: [],
-      selectedCategory: ''
+      selectedCategory: null
     };
   },
   computed: {
@@ -107,7 +107,7 @@ export default {
     filteredEntries: function() {
       let filteredEntries = []
       for(let entry of this.data) {
-        if (this.selectedCategory.length) {
+        if (this.selectedCategory) {
           if (entry.category == this.selectedCategory) { // Category filter
             if (this.dateRange != null) {
               let timestampL = new Date(this.dateRange[0]).getTime()
@@ -143,7 +143,7 @@ export default {
       });
     },
     clearFilters() {
-      this.selectedCategory = ''
+      this.selectedCategory = null
       this.dateRange = null
     }
   },

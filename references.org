@@ -18,9 +18,11 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** TODO Import/export
 ** TODO Fix header
 ** TODO Floating add button
-** TOOD Show categories only if there are entries in there
-** TODO Filters
-- [ ] Filter by database
+** TODO Bulma variables
+** ACTV UI: containers for splitting screen size among elements
+** DONE Show categories only if there are entries in there
+** DONE Filters
+- [X] Filter by date
 - [X] category
 ** DONE Persistent data storage in localStorage
 ** DONE Add icons
