@@ -11,13 +11,13 @@
           {{ category }}
         </option>
       </b-select>
-      <b-button @click="selectedCategory = ''" icon-left="times has-align-items-right"></b-button>
+      <b-button @click="selectedCategory = ''" :disabled="!selectedCategory.length" icon-left="times has-align-items-right"></b-button>
       <b-datepicker
             placeholder="Select a date-range..."
             v-model="dateRange"
             range>
         </b-datepicker>
-        <b-button @click="dateRange = null" icon-left="times"></b-button>
+        <b-button @click="dateRange = null" :disabled="!dateRange" icon-left="times"></b-button>
     </b-field>
     <b-table
       :data="filteredEntries"
@@ -85,7 +85,7 @@ export default {
   },
   data() {
     return {
-      dateRange: [],
+      dateRange: null,
       checkedRows: [],
       selectedCategory: ''
     };
