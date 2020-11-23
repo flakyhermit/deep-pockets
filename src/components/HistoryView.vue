@@ -152,6 +152,6 @@ export default {
 
 <style scoped>
 #history-view {
-  max-width: 60%;
+  max-width: 800px;
 }
 </style>

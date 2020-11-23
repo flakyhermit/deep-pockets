@@ -4,7 +4,7 @@
     <div id="header-title" class="has-text-primary is-size-4 has-text-weight-bold">{{ title }}</div>
     <div id="header-description" class="has-text-grey">{{ description }}</div>
   </div> -->
-  <div class="px-5 py-5 is-flex is-justify-content-space-between">
+  <div class="px-5 py-5 is-flex is-justify-content-space-evenly">
     <div class="has-text-primary is-flex-grow-1 has-text-weight-bold is-size-4 mr-5">{{ title }}</div>
     <div class="">{{ description }}</div>
   </div>

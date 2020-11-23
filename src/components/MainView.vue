@@ -31,7 +31,7 @@
       </b-tab-item>
     </b-tabs>
     </div>
-  <div class="button1"><b-button class="button is-primary is-medium" v-on:click="isComponentModalActive = !isComponentModalActive">ADD NEW ENTRY</b-button></div>
+  <div class="button1"><b-button icon-left="file" class="button is-primary has-text-weight-medium" v-on:click="isComponentModalActive = !isComponentModalActive">ADD NEW ENTRY</b-button></div>
   </div>
 </template>
 
