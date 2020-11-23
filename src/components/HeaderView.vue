@@ -6,7 +6,7 @@
   </div> -->
   <div class="px-5 py-5 is-flex is-justify-content-space-evenly">
     <div class="has-text-primary is-flex-grow-1 has-text-weight-bold is-size-4 mr-5">{{ title }}</div>
-    <div class="">{{ description }}</div>
+    <div class="has-color-grey is-size-6">{{ description }}</div>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
   data: () => {
     return {
       title: "Deep Pockets",
-      description: "Ridiculously simple expense-tracking for Gen-Z kids",
+      description: "Ridiculously simple expense tracking for Gen-Z kids",
     };
   },
   methods: {
