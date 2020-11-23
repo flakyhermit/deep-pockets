@@ -1,7 +1,10 @@
 # Deep Pockets
-A simple expense-tracker for first-time earners.
+A simple expense-tracker for first-time earners. 
+A demo is hosted at https://deep-pockets.netlify.app/
 
-## Project setup
+## Building it yourself
+This application uses `npm` as the package manager. 
+### Project setup
 ```
 npm install
 ```
