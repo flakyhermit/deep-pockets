@@ -42,6 +42,6 @@ export default {
 
 <style scoped>
 #summary-view {
-  max-width: 700px;
+  max-width: 50%;
 }
 </style>

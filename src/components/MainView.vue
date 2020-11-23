@@ -1,5 +1,6 @@
 <template>
-  <div id="main-view" class="has-navbar-fixed-bottom">
+  <div class="main-view">
+    <div class="content-view">
     <!-- Add data modal -->
     <b-modal
       v-model="isComponentModalActive"
@@ -17,7 +18,7 @@
         ></modal-form>
       </template>
     </b-modal>
-    <HeaderView v-on:add-entry-button-click="isComponentModalActive = !isComponentModalActive"></HeaderView>
+    <HeaderView></HeaderView>
 
     <b-tabs position="is-centered has-text-weight-semibold" animated>
       <b-tab-item label="OVERVIEW">
@@ -29,7 +30,8 @@
         ></HistoryView>
       </b-tab-item>
     </b-tabs>
-
+    </div>
+  <div class="button1"><b-button class="button is-primary is-medium" v-on:click="isComponentModalActive = !isComponentModalActive">ADD NEW ENTRY</b-button></div>
   </div>
 </template>
 
@@ -126,4 +128,20 @@ export default {
 </script>
 
 <style scoped>
+.main-view {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.content-view {
+}
+
+.button1 {
+  /* margin-bo: auto; */
+  margin-bottom: 2%;
+  align-self: center;
+}
 </style>

@@ -19,7 +19,7 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** TODO Fix header
 ** TODO Floating add button
 ** TODO Bulma variables
-** ACTV UI: containers for splitting screen size among elements
+** DONE UI: containers for splitting screen size among elements
 ** DONE Show categories only if there are entries in there
 ** DONE Filters
 - [X] Filter by date
