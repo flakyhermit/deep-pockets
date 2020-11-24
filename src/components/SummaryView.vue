@@ -34,6 +34,9 @@ export default {
           if (sum.amount > 0)
             tempSums.push(sum)
         }
+        tempSums.sort(function (a, b) {
+          return b.amount - a.amount
+        })
         return tempSums
       }
     }

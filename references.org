@@ -19,7 +19,7 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** DONE Fix header
 ** DONE Floating add button
 ** DONE Bulma variables
-** TODO Summary sorting
+** DONE Summary sorting
 ** DONE UI: containers for splitting screen size among elements
 ** DONE Show categories only if there are entries in there
 ** DONE Filters
