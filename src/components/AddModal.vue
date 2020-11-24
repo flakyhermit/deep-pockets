@@ -20,28 +20,40 @@
           >
           </b-input>
         </b-field>
-        <b-field grouped>
+        <b-field grouped group-multiline class="mb-5">
           <b-field label="Category">
-          <b-select
-            placeholder="Select a category"
-            required
-            v-model="entryDetails.category"
-            :disabled="!categories.length" 
-            expanded
-            icon="tag"
-          >
-            <option
-              v-for="entry in categories"
-              v-bind:key="entry"
-              v-bind:value="entry"
+            <b-select
+              placeholder="Select a category"
+              required
+              v-model="entryDetails.category"
+              :disabled="!categories.length"
+              expanded
+              icon="tag"
             >
-              {{ entry }}
-            </option>
-          </b-select>
+              <option
+                v-for="entry in categories"
+                v-bind:key="entry"
+                v-bind:value="entry"
+              >
+                {{ entry }}
+              </option>
+            </b-select>
           </b-field>
           <b-field label="Add category">
-          <b-input placeholder="New category name" type="text" v-model="newCategory" min="1" max="20"></b-input>
-          <b-button class="is-success" @click="emitAddCategory" icon-left="plus"></b-button>
+            <b-input
+              placeholder="New category name"
+              class="control"
+              type="text"
+              v-model="newCategory"
+              min="1"
+              max="20"
+              expanded
+            ></b-input>
+            <b-button
+              class="is-success"
+              @click="emitAddCategory"
+              icon-left="plus"
+            ></b-button>
           </b-field>
         </b-field>
 

@@ -1,7 +1,7 @@
 <!-- HistoryView.vue - For event history  -->
 <template>
   <div id="history-view" class="container">
-    <div class="columns is-light">
+    <div class="columns is-light is-gapless is-multiline">
       <b-field class="column is-one-third">
         <b-select icon="tag" placeholder="Category" v-model="selectedCategory" expanded 
             :disabled="!categories.length">
@@ -32,10 +32,9 @@
       paginated
       per-page="9"
       scrollable
-      bordered
       hoverable
       :checked-rows.sync="checkedRows"
-      checkable
+      :checkable="isCheckable"
       checkbox-position="left"
       pagination-position="bottom"
       default-sort-direction="asc"
@@ -59,7 +58,15 @@
         </span>
       </b-table-column>
       <template slot="bottom-left">
-        <b-field grouped class="container">
+        <b-field grouped class="container is-1">
+            <button
+            class="button field"
+            @click="isCheckable = !isCheckable"
+          >
+            <b-icon v-if="isCheckable" icon="check-double"></b-icon>
+            <!-- <b-icon v-if="isCheckable" icon="times"></b-icon> -->
+            <span>Select</span>
+          </button>
           <button
             class="button field"
             @click="checkedRows = []"
@@ -76,6 +83,7 @@
             <b-icon icon="trash-alt"></b-icon>
             <span>Delete</span>
           </button>
+         
         </b-field>
       </template>
     </b-table>
@@ -93,6 +101,7 @@ export default {
     return {
       dateRange: null,
       checkedRows: [],
+      isCheckable: false,
       selectedCategory: null
     };
   },

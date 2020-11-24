@@ -18,17 +18,17 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** TODO Import/export
 ** DONE Fix header
 ** DONE Floating add button
-** TODO Bulma variables
+** DONE Bulma variables
 ** TODO Summary sorting
 ** DONE UI: containers for splitting screen size among elements
 ** DONE Show categories only if there are entries in there
 ** DONE Filters
 - [X] Filter by date
 - [X] category
-** TODO Floating header and add buttons
+** ACTV Floating header and add buttons
 ** TODO Tidy up header for mobile
 ** TODO Date based summary
-** TODO Date picker bug
+** DONE Date picker bug
 ** TODO Sorting by amount
 ** DONE Persistent data storage in localStorage
 ** DONE Add icons
