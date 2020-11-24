@@ -136,9 +136,6 @@ export default {
   align-items: stretch;
 }
 
-.content-view {
-}
-
 .button1 {
   /* margin-bo: auto; */
   margin-bottom: 2%;
