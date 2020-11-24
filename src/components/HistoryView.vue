@@ -20,6 +20,7 @@
             placeholder="Select a date-range..."
             v-model="dateRange"
             range
+            :mobile-native="false"
             expanded>
         </b-datepicker>
         <b-button @click="dateRange = null" :disabled="!dateRange" icon-left="times"></b-button>
