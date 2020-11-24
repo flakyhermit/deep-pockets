@@ -26,10 +26,10 @@ Ridiculously simple expense-tracking for Gen-Z kids
 - [X] Filter by date
 - [X] category
 ** ACTV Floating header and add buttons
-** TODO Tidy up header for mobile
+** DONE Tidy up header for mobile
 ** TODO Date based summary
 ** DONE Date picker bug
-** TODO Sorting by amount
+** DONE Sorting by amount
 ** DONE Persistent data storage in localStorage
 ** DONE Add icons
 ** DONE Deletions

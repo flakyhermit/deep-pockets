@@ -1,5 +1,7 @@
 <template>
   <div class="main-view">
+
+    <HeaderView></HeaderView>
     <div class="content-view">
     <!-- Add data modal -->
     <b-modal
@@ -18,7 +20,6 @@
         ></modal-form>
       </template>
     </b-modal>
-    <HeaderView></HeaderView>
 
     <b-tabs position="is-centered has-text-weight-semibold" animated>
       <b-tab-item label="OVERVIEW">
@@ -130,15 +131,15 @@ export default {
 <style scoped>
 .main-view {
   display: flex;
-  height: 100%;
+  height: 100vh;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
 }
-
+.content-view {
+  flex-grow: 1;
+  overflow: auto;
+}
 .button1 {
-  /* margin-bo: auto; */
-  margin-bottom: 2%;
   align-self: center;
+  margin-bottom: 1rem;
 }
 </style>

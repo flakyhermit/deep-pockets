@@ -1,7 +1,7 @@
 <!-- HistoryView.vue - For event history  -->
 <template>
   <div id="history-view" class="container">
-    <div class="columns is-light is-gapless is-multiline mb-1">
+    <div class="columns is-light is-gapless is-multiline mb-3">
       <b-field class="column is-one-third">
         <b-select icon="tag" placeholder="Category" v-model="selectedCategory" expanded 
             :disabled="!categories.length">
@@ -30,8 +30,9 @@
       :data="filteredEntries"
       :mobile-cards="false"
       paginated
-      per-page="9"
+      per-page="7"
       scrollable
+      bordered
       hoverable
       :checked-rows.sync="checkedRows"
       :checkable="isCheckable"
