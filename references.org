@@ -25,7 +25,7 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** DONE Filters
 - [X] Filter by date
 - [X] category
-** ACTV Floating header and add buttons
+** DONE Floating header and add buttons
 ** DONE Tidy up header for mobile
 ** TODO Date based summary
 ** DONE Date picker bug

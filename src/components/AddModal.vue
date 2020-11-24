@@ -26,7 +26,6 @@
               placeholder="Select a category"
               required
               v-model="entryDetails.category"
-              :disabled="!categories.length"
               expanded
               icon="tag"
             >
