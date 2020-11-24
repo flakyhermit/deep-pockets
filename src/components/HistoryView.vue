@@ -1,7 +1,7 @@
 <!-- HistoryView.vue - For event history  -->
 <template>
   <div id="history-view" class="container">
-    <div class="columns is-light is-gapless is-multiline">
+    <div class="columns is-light is-gapless is-multiline mb-1">
       <b-field class="column is-one-third">
         <b-select icon="tag" placeholder="Category" v-model="selectedCategory" expanded 
             :disabled="!categories.length">
@@ -69,7 +69,7 @@
           </button>
           <button
             class="button field"
-            @click="checkedRows = []"
+            @click="checkedRows = []; isCheckable = false"
             :disabled="!checkedRows.length"
           >
             <b-icon icon="times"></b-icon>
