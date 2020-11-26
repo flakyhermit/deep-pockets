@@ -109,7 +109,7 @@ export default {
     },
     emitAddEntryEvent: function () {
       this.$emit("add-entry-details", this.entryDetails);
-      this.entryDetails.amount = null;
+      this.entryDetails.amount = null
       this.entryDetails.category = null;
       this.entryDetails.note = null;
       this.toastDo("Entry added", "is-success");

@@ -4,6 +4,7 @@ A demo is hosted at https://deep-pockets.netlify.app/
 
 ## Building it yourself
 This application uses `npm` as the package manager. 
+
 ### Project setup
 ```
 npm install
