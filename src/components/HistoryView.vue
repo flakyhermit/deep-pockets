@@ -29,9 +29,9 @@
     <b-table
       :data="filteredEntries"
       :mobile-cards="false"
+      sticky-header
       paginated
       per-page="7"
-      scrollable
       bordered
       hoverable
       :checked-rows.sync="checkedRows"
@@ -62,7 +62,7 @@
         <b-field grouped class="container is-1">
             <button
             class="button field"
-            @click="isCheckable = !isCheckable"
+            @click="isCheckable = !isCheckable; checkedRows = []"
           >
             <b-icon v-if="isCheckable" icon="check-double"></b-icon>
             <!-- <b-icon v-if="isCheckable" icon="times"></b-icon> -->
@@ -97,6 +97,7 @@ export default {
   components: {},
   props: {
     data: Array,
+    viewHeight: Number
   },
   data() {
     return {
@@ -163,6 +164,6 @@ export default {
 
 <style scoped>
 #history-view {
-  max-width: 800px;
+    max-width: 800px;
 }
 </style>
