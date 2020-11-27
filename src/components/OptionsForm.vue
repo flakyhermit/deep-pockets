@@ -31,6 +31,7 @@
           <b-select
             placeholder="Select a category"
             required
+            :disabled="!categories.length"
             v-model="selectedCategory"
             icon="tag"
           >
