@@ -19,21 +19,20 @@
         </div>
         <b-field label="Manage categories">
           <p class="content has-text-grey is-size-6">
-            Rename or delete category names. 
-            <br>
-            <span class="has-text-danger has-text-weight-semibold">Note</span>: These operations change
-            the entries themselves. Deleting a category will delete all the
-            entries with that category. Renaming will rename the category in the
-            past entries.
+            Rename or delete category names.
+            <br />
+            <span class="has-text-danger has-text-weight-semibold">Note</span>:
+            These operations change the entries themselves. Deleting a category
+            will delete all the entries with that category. Renaming will rename
+            the category in the past entries.
           </p>
         </b-field>
-        <b-field grouped>
-          <b-select
+        <b-field grouped group-multiline>
+          <b-select class="control"
             placeholder="Select a category"
             required
             :disabled="!categories.length"
             v-model="selectedCategory"
-
             @input="clearOps"
             icon="tag"
           >
@@ -45,44 +44,50 @@
               {{ entry }}
             </option>
           </b-select>
-          <b-input
-            placeholder="New name"
-            v-if="isRename && selectedCategory"
-            v-model="newCategoryName"
-          >
-          </b-input>
-          <div class="buttons">
+          <b-field v-if="isRename && selectedCategory">
+            <b-input
+              placeholder="New name"
+              v-model="newCategoryName"
+              expanded
+            >
+            </b-input>
+            <b-button
+              class="is-success"
+              icon-left="check"
+              @click="
+                isRename = false;
+                emitRenameCategory();
+              "
+              ></b-button> 
+              <b-button
+              @click="clearOps"
+              icon-left="times"
+              ></b-button>
+          </b-field>
+          <p class="buttons control">
             <b-button
               :disabled="!selectedCategory"
               v-if="!isRename"
               class="is-warning"
               icon-left="pen"
               @click="isRename = true"
-            ></b-button>
-            <b-button
-              v-if="isRename"
-              class="is-success"
-              @click="
-                isRename = false;
-                emitRenameCategory();
-              "
-              >Rename</b-button
-            >
+            >Rename</b-button>
             <b-button
               :disabled="!selectedCategory"
               class="is-danger"
               icon-left="trash-alt"
-              @click="isRename = false; emitDeleteCategory()"
-            ></b-button>
-            
-          </div>
-        </b-field>
-        
-          <p class="content has-text-grey is-size-6">
-            You can add new categories when you add new entries.
+              @click="
+                isRename = false;
+                emitDeleteCategory();
+              "
+            >Delete</b-button>
           </p>
-      </section>
+        </b-field>
 
+        <p class="content has-text-grey is-size-6">
+          You can add new categories when you add new entries.
+        </p>
+      </section>
     </div>
   </form>
 </template>
@@ -130,10 +135,10 @@ export default {
         "is-danger"
       );
     },
-    clearOps: function() {
-      console.log('Here');
-      this.isRename = false
-    }
+    clearOps: function () {
+      console.log("Here");
+      this.isRename = false;
+    },
   },
 };
 </script>

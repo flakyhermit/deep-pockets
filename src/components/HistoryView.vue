@@ -64,17 +64,10 @@
             class="button field"
             @click="isCheckable = !isCheckable; checkedRows = []"
           >
-            <b-icon v-if="isCheckable" icon="check-double"></b-icon>
-            <!-- <b-icon v-if="isCheckable" icon="times"></b-icon> -->
-            <span>Select</span>
-          </button>
-          <button
-            class="button field"
-            @click="checkedRows = []; isCheckable = false"
-            :disabled="!checkedRows.length"
-          >
-            <b-icon icon="times"></b-icon>
-            <span>Clear</span>
+          <p class="control" v-if="!isCheckable">
+            <b-icon icon="check-double"></b-icon>
+          </p>
+            <b-icon v-if="isCheckable" icon="times"></b-icon>
           </button>
           <button
             class="button field is-danger"
