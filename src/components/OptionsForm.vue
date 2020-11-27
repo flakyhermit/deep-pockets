@@ -19,7 +19,12 @@
         </div>
         <b-field label="Manage categories">
           <p class="content has-text-grey is-size-6">
-            Add, delete, rename categories and limits.
+            Rename or delete category names. 
+            <br>
+            <span class="has-text-danger has-text-weight-semibold">Note</span>: These operations change
+            the entries themselves. Deleting a category will delete all the
+            entries with that category. Renaming will rename the category in the
+            past entries.
           </p>
         </b-field>
         <b-field grouped>
@@ -66,9 +71,15 @@
               icon-left="trash-alt"
               @click="emitDeleteCategory"
             ></b-button>
+            
           </div>
         </b-field>
+        
+          <p class="content has-text-grey is-size-6">
+            You can add new categories when you add new entries.
+          </p>
       </section>
+
     </div>
   </form>
 </template>
@@ -97,18 +108,24 @@ export default {
       });
     },
     emitRenameCategory: function () {
-      if (this.newCategoryName && this.newCategoryName.length > 0)
+      if (this.newCategoryName && this.newCategoryName.length > 0) {
         this.$emit(
           "rename-category",
           this.selectedCategory,
           this.newCategoryName
         );
-      else this.toastDo("Enter a valid category name", "is-grey");
+        this.selectedCategory = null;
+        this.toastDo("Renamed all entries", "is-success");
+      } else this.toastDo("Enter a valid category name", "is-grey");
     },
-    emitDeleteCategory: function() {
-      this.$emit('delete-category', this.selectedCategory)
-      this.toastDo("All entries with the category '" + this.selectedCategory + "' deleted", "is-danger")
-    }
+    emitDeleteCategory: function () {
+      this.$emit("delete-category", this.selectedCategory);
+      this.selectedCategory = null;
+      this.toastDo(
+        "All entries with the category '" + this.selectedCategory + "' deleted",
+        "is-danger"
+      );
+    },
   },
 };
 </script>
