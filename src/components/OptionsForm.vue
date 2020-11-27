@@ -33,6 +33,8 @@
             required
             :disabled="!categories.length"
             v-model="selectedCategory"
+
+            @input="clearOps"
             icon="tag"
           >
             <option
@@ -116,6 +118,7 @@ export default {
           this.newCategoryName
         );
         this.selectedCategory = null;
+        this.newCategoryName = null;
         this.toastDo("Renamed all entries", "is-success");
       } else this.toastDo("Enter a valid category name", "is-grey");
     },
@@ -127,6 +130,10 @@ export default {
         "is-danger"
       );
     },
+    clearOps: function() {
+      console.log('Here');
+      this.isRename = false
+    }
   },
 };
 </script>
