@@ -70,7 +70,7 @@
               :disabled="!selectedCategory"
               class="is-danger"
               icon-left="trash-alt"
-              @click="emitDeleteCategory"
+              @click="isRename = false; emitDeleteCategory()"
             ></b-button>
             
           </div>
