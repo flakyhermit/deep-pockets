@@ -38,7 +38,7 @@
               </option>
             </b-select>
           </b-field>
-          <b-field label="Add category">
+          <!-- <b-field label="Add category">
             <b-input
               placeholder="New category name"
               class="control"
@@ -53,7 +53,8 @@
               @click="emitAddCategory"
               icon-left="plus"
             ></b-button>
-          </b-field>
+          </b-field> -->
+          <add-category @add-category-low="emitAddCategory"></add-category>
         </b-field>
 
         <b-field label="Note">
@@ -83,9 +84,14 @@
 </template>
 
 <script>
+import AddCategory from "./AddCategory.vue";
+
 export default {
   props: {
     categories: Array,
+  },
+  components: {
+    AddCategory,
   },
   data() {
     return {
@@ -94,7 +100,6 @@ export default {
         category: null,
         note: null,
       },
-      newCategory: "",
     };
   },
   methods: {
@@ -109,25 +114,25 @@ export default {
     },
     emitAddEntryEvent: function () {
       this.$emit("add-entry-details", this.entryDetails);
-      this.entryDetails.amount = null
+      this.entryDetails.amount = null;
       this.entryDetails.category = null;
       this.entryDetails.note = null;
       this.toastDo("Entry added", "is-success");
     },
-    // Helper functions
     letterCapitalize: function (word) {
-      return word[0].toUpperCase() + word.slice(1);
+      return word[0].toUpperCase() + word.slice(1)
     },
-    emitAddCategory: function () {
-      let capitalizedName = this.letterCapitalize(this.newCategory);
+    emitAddCategory: function (newCategory) {
+      if (newCategory == null) { return }
+      let capitalizedName = this.letterCapitalize(newCategory);
       if (this.categories.indexOf(capitalizedName) != -1) {
         this.toastDo(`Category already exists!`);
       } else {
-        this.$emit("add-category", this.newCategory);
-        this.newCategory = "";
+        this.$emit("add-category", capitalizedName);
+        this.newCategory = null;
         this.toastDo("Category added", "is-success");
       }
-    },
+    }
   },
 };
 </script>

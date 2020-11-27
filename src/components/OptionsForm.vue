@@ -2,61 +2,72 @@
   <form @submit.prevent="emitAddEntryEvent">
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title is-size-5 has-text-weight-medium">
-          Options
-        </p>
+        <p class="modal-card-title is-size-5 has-text-weight-medium">Options</p>
         <button type="button" class="delete" @click="$emit('close')" />
       </header>
 
       <section class="modal-card-body">
         <b-field label="Import/Export">
-            <p class="content has-text-grey is-size-6">To save your data permanently you can export it, and import it back if you lose it.</p>
+          <p class="content has-text-grey is-size-6">
+            To save your data permanently you can export it, and import it back
+            if you lose it.
+          </p>
         </b-field>
         <div class="buttons">
-            <b-button class="is-primary">Export</b-button>
-            <b-button class="button">Import</b-button>
+          <b-button class="is-primary">Export</b-button>
+          <b-button class="button">Import</b-button>
         </div>
         <b-field label="Manage categories">
-            <p class="content has-text-grey is-size-6">Add, delete, rename categories and limits.</p>
+          <p class="content has-text-grey is-size-6">
+            Add, delete, rename categories and limits.
+          </p>
         </b-field>
-            <b-field  grouped>
-            <b-select
-              placeholder="Select a category"
-              required
-              v-model="selectedCategory"
-              icon="tag"
+        <b-field grouped>
+          <b-select
+            placeholder="Select a category"
+            required
+            v-model="selectedCategory"
+            icon="tag"
+          >
+            <option
+              v-for="entry in categories"
+              v-bind:key="entry"
+              v-bind:value="entry"
             >
-              <option
-                v-for="entry in categories"
-                v-bind:key="entry"
-                v-bind:value="entry"
-              >
-                {{ entry }}
-              </option>
-            </b-select>
-            <div class="buttons">
-                
-                
-                <b-button class="is-danger" icon-left="trash-alt"></b-button>
-                <b-button class="is-warning" icon-left="pen"></b-button>
-            </div>
-            
-            </b-field>
-            <b-field label="Add category">
-            <b-input
-              placeholder="New category name"
-              class="control"
-              type="text"
-              v-model="newCategory"
-              min="1"
-              max="20"
-            ></b-input>
+              {{ entry }}
+            </option>
+          </b-select>
+          <b-input
+            placeholder="New name"
+            v-if="isRename && selectedCategory"
+            v-model="newCategoryName"
+          >
+          </b-input>
+          <div class="buttons">
             <b-button
-              class="is-success"
-              @click="emitAddCategory"
-              icon-left="plus"
+              :disabled="!selectedCategory"
+              v-if="!isRename"
+              class="is-warning"
+              icon-left="pen"
+              @click="isRename = true"
             ></b-button>
-          </b-field>
+            <b-button
+              v-if="isRename"
+              class="is-success"
+              @click="
+                isRename = false;
+                emitRenameCategory();
+              "
+              >Rename</b-button
+            >
+            <b-button
+              :disabled="!selectedCategory"
+              class="is-danger"
+              icon-left="trash-alt"
+              @click="emitDeleteCategory"
+            ></b-button>
+          </div>
+        </b-field>
       </section>
     </div>
   </form>
@@ -70,7 +81,9 @@ export default {
   data() {
     return {
       showButtons: false,
-      selectedCategory: null
+      selectedCategory: null,
+      isRename: false,
+      newCategoryName: null,
     };
   },
   methods: {
@@ -82,7 +95,20 @@ export default {
         position: "is-bottom",
         type: typeAssign,
       });
+    },
+    emitRenameCategory: function () {
+      if (this.newCategoryName && this.newCategoryName.length > 0)
+        this.$emit(
+          "rename-category",
+          this.selectedCategory,
+          this.newCategoryName
+        );
+      else this.toastDo("Enter a valid category name", "is-grey");
+    },
+    emitDeleteCategory: function() {
+      this.$emit('delete-category', this.selectedCategory)
+      this.toastDo("All entries with the category '" + this.selectedCategory + "' deleted", "is-danger")
     }
-  }
+  },
 };
 </script>

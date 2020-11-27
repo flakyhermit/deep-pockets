@@ -33,6 +33,8 @@
           <options-form
             v-bind:categories="categories"
             @close="props.close"
+            @rename-category="renameCategory"
+            @delete-category="deleteCategoryEntries"
           ></options-form>
         </template>
       </b-modal>
@@ -93,21 +95,17 @@ export default {
   data: function () {
     return {
       entries: [],
-      categories: [],
 
       // Function altering variables
       isComponentModalActive: false,
       isViewMounted: false,
       isOptionsModalActive: false,
+      writeFlag: false
     };
   },
   mounted: function () {
     let dataString = localStorage.getItem("deep-pockets-data");
     if (dataString) this.entries = JSON.parse(dataString);
-    if (localStorage.deepPocketsCategories)
-      this.categories = JSON.parse(
-        localStorage.deepPocketsCategories
-      ).categories;
     this.isViewMounted = true;
   },
   watch: {
@@ -115,10 +113,10 @@ export default {
       let dataString = JSON.stringify(this.entries);
       localStorage.setItem("deep-pockets-data", dataString);
     },
-    categories: function () {
-      let categoryObject = { categories: this.categories };
-      localStorage.deepPocketsCategories = JSON.stringify(categoryObject);
-    },
+    writeFlag: function () {
+      let dataString = JSON.stringify(this.entries);
+      localStorage.setItem("deep-pockets-data", dataString);
+    }
   },
   computed: {
     netAmounts: function () {
@@ -136,6 +134,14 @@ export default {
         netAmounts.push(amountObj);
       }
       return netAmounts;
+    },
+    categories: function () {
+      let categories = []
+      for (let entry of this.entries) {
+        if (categories.indexOf(entry.category) == -1) 
+          categories.push(entry.category)
+      }
+      return categories
     },
     viewHeight: function () {
       let height = 0;
@@ -167,12 +173,29 @@ export default {
         }
       }
     },
+    deleteCategoryEntries(category) {
+      let newEntries = []
+      for (let entry of this.entries) {
+        if (entry.category != category) {
+          newEntries.push(entry)
+        }
+      }
+      this.entries = newEntries
+    },
     // Event listener calls
     recordEntry(entryDetails) {
       // console.log(entryDetails);
       this.isComponentModalActive = false;
       this.addEntry(entryDetails);
     },
+    renameCategory: function (oldName, newName) {
+      console.log(oldName, newName)
+      for (let entry of this.entries) {
+        if (entry.category == oldName) 
+          entry.category = newName[0].toUpperCase() + newName.slice(1)
+      }
+      this.writeFlag = !this.writeFlag
+    }
   },
 };
 </script>

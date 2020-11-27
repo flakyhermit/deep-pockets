@@ -16,6 +16,9 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** DONE Add new entries to database
 ** TODO Category manager
 ** TODO Import/export
+** TODO About page
+** TODO Confirmation dialogs
+** TODO Fix toasts
 ** DONE Fix header
 ** DONE Floating add button
 ** DONE Bulma variables
