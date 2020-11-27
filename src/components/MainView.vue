@@ -95,7 +95,7 @@ export default {
   data: function () {
     return {
       entries: [],
-
+      categories: [],
       // Function altering variables
       isComponentModalActive: false,
       isViewMounted: false,
@@ -112,10 +112,24 @@ export default {
     entries: function () {
       let dataString = JSON.stringify(this.entries);
       localStorage.setItem("deep-pockets-data", dataString);
+
+      let categories = []
+      for (let entry of this.entries) {
+        if (categories.indexOf(entry.category) == -1) 
+          categories.push(entry.category)
+      }
+      this.categories = categories
     },
     writeFlag: function () {
       let dataString = JSON.stringify(this.entries);
       localStorage.setItem("deep-pockets-data", dataString);
+
+      let categories = []
+      for (let entry of this.entries) {
+        if (categories.indexOf(entry.category) == -1) 
+          categories.push(entry.category)
+      }
+      this.categories = categories
     }
   },
   computed: {
@@ -134,14 +148,6 @@ export default {
         netAmounts.push(amountObj);
       }
       return netAmounts;
-    },
-    categories: function () {
-      let categories = []
-      for (let entry of this.entries) {
-        if (categories.indexOf(entry.category) == -1) 
-          categories.push(entry.category)
-      }
-      return categories
     },
     viewHeight: function () {
       let height = 0;
