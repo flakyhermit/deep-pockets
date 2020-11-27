@@ -11,12 +11,12 @@
         aria-role="dialog"
         aria-modal
       >
-        <template #default="props">
+        <template v-slot="props">
           <modal-form
             v-bind:categories="categories"
             @add-entry-details="recordEntry"
             @add-category="addCategory"
-            @close="props.close"
+            @close="writeFlag = !writeFlag; props.close()"
           ></modal-form>
         </template>
       </b-modal>
