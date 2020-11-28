@@ -105,9 +105,16 @@ export default {
     return {
       isDatePickerVisible: false,
       activeTag: 0,
+      trigger: false,
+      curTimestamp: new Date(),
       datePickerRange: [],
       tagObj: { 0: true, 1: false, 2: false, 3: false, 4: false, 5: false },
     };
+  },
+  watch: {
+    entries: function () {
+      this.curTimestamp = new Date()
+    }
   },
   computed: {
     sums: function () {
@@ -128,7 +135,7 @@ export default {
     },
     dateRange: function () {
       let dateRange = [];
-      const curDate = new Date();
+      let curDate = this.curTimestamp
       switch (this.activeTag) {
         case 0:
           // Forever
@@ -192,11 +199,10 @@ export default {
     },
     filteredEntries: function () {
       let filteredEntries = []
-      if (!this.dateRange.length) return this.entries
-      for (let entry of this.entries) {
-        const entryDate = new Date(entry.timestamp)
+      for (let i = 0; i < this.entries.length; i++) {
+        let entryDate = new Date(this.entries[i].timestamp)
         if (this.dateRange[0] <= entryDate && entryDate < this.dateRange[1])
-          filteredEntries.push(entry)
+          filteredEntries.push(this.entries[i])
       }
       return filteredEntries
     },
@@ -213,6 +219,7 @@ export default {
   },
   methods: {
     tagClick(id) {
+      this.curTimestamp = new Date()
       if (id != 6)
         this.isDatePickerVisible = false;
       this.activeTag = id;

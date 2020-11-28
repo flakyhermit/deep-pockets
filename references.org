@@ -14,7 +14,7 @@ Ridiculously simple expense-tracking for Gen-Z kids
 
 * To-do
 ** DONE Add new entries to database
-** TODO Category manager
+** DONE Category manager
 ** TODO Import/export
 ** TODO About page
 ** TODO Confirmation dialogs
@@ -30,8 +30,8 @@ Ridiculously simple expense-tracking for Gen-Z kids
 - [X] category
 ** DONE Floating header and add buttons
 ** DONE Tidy up header for mobile
-** TODO Date based summary
-** TODO Change 'OVERVIEW'
+** DONE Date based summary
+** DONE Change 'OVERVIEW'
 ** DONE Date picker bug
 ** DONE Sorting by amount
 ** DONE Persistent data storage in localStorage
