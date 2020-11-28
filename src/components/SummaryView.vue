@@ -47,7 +47,7 @@
       </div>
       <div
         class="button is-small is-rounded has-text-weight-medium"
-        v-bind:class="{ 'is-primary': tagObj[6] }"
+        v-bind:class="{ 'is-primary': tagObj[6] && datePickerRange }"
         @click="isDatePickerVisible = true; tagClick(6);"
       >
         Custom range
@@ -66,17 +66,6 @@
       >
       </b-datepicker>
     </div>
-    <!-- Filter -->
-    <!-- <b-field class="columns" grouped group-multiline>
-    
-    <b-tag-taglist class="tags column has-text-weight-medium">
-        <b-tag class="is-primary">This month</b-tag>
-        <b-tag class="is-red is-light">Last month</b-tag>
-        <b-tag>This week</b-tag>
-        <b-tag>Today</b-tag>
-        <b-tag>Custom range</b-tag>
-    </b-tag-taglist>
-    </b-field> -->
     <div
       id="summary-entry"
       class="notification is-primary is-light mb-2 px-5"
@@ -125,7 +114,7 @@ export default {
       let sums = [];
       for (let category of this.categories) {
         let curAmount = 0;
-        for (let entry of this.entries) {
+        for (let entry of this.filteredEntries) {
           if (entry.category == category) {
             curAmount = curAmount + entry.amount;
           }
@@ -192,14 +181,18 @@ export default {
           dateRange[1] = new Date(curDate.getFullYear(), curDate.getMonth(), 0);
           break;
         case 6:
-          dateRange[0] = new Date(this.datePickerRange[0]);
-          dateRange[1] = new Date(this.datePickerRange[1].getTime() + (1000 * 60 * 60 * 24));
+          if(this.datePickerRange.length) {
+            dateRange[0] = new Date(this.datePickerRange[0]);
+            dateRange[1] = new Date(this.datePickerRange[1].getTime() + (1000 * 60 * 60 * 24));
+          }
+          else dateRange = this.datePickerRange
           break;
       }
       return dateRange;
     },
     filteredEntries: function () {
       let filteredEntries = []
+      if (!this.dateRange.length) return this.entries
       for (let entry of this.entries) {
         const entryDate = new Date(entry.timestamp)
         if (this.dateRange[0] <= entryDate && entryDate < this.dateRange[1])
