@@ -40,7 +40,7 @@
       </b-modal>
 
       <b-tabs position="is-centered has-text-weight-semibold" animated>
-        <b-tab-item label="OVERVIEW">
+        <b-tab-item label="SUMMARY">
           <SummaryView :entries="entries" :categories="categories"></SummaryView>
         </b-tab-item>
         <b-tab-item label="HISTORY">
