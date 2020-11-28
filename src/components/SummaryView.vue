@@ -47,8 +47,8 @@
       </div>
       <div
         class="button is-small is-rounded has-text-weight-medium"
-        v-bind:class="{ 'is-primary': tagObj[2] }"
-        @click="isDatePickerVisible = !isDatePickerVisible"
+        v-bind:class="{ 'is-primary': tagObj[6] }"
+        @click="isDatePickerVisible = true; tagClick(6);"
       >
         Custom range
       </div>
@@ -59,7 +59,7 @@
     >
       <b-datepicker
         placeholder="Select a date-range..."
-        v-model="dateRange"
+        v-model="datePickerRange"
         range
         :mobile-native="false"
         expanded
@@ -214,7 +214,8 @@ export default {
   },
   methods: {
     tagClick(id) {
-      this.isDatePickerVisible = false;
+      if (id != 6)
+        this.isDatePickerVisible = false;
       this.activeTag = id;
       this.tagObj[id] = true;
       for (let el in this.tagObj) {
