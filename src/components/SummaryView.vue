@@ -109,16 +109,98 @@ export default {
   name: "SummaryView",
   components: {},
   props: {
-    sums: Array,
+    entries: Array,
+    categories: Array,
   },
   data: () => {
     return {
       isDatePickerVisible: false,
-      dateRange: [],
+      activeTag: 0,
+      datePickerRange: [],
       tagObj: { 0: true, 1: false, 2: false, 3: false, 4: false, 5: false },
     };
   },
   computed: {
+    sums: function () {
+      let sums = [];
+      for (let category of this.categories) {
+        let curAmount = 0;
+        for (let entry of this.entries) {
+          if (entry.category == category) {
+            curAmount = curAmount + entry.amount;
+          }
+        }
+        let amountObj = {};
+        amountObj["category"] = category;
+        amountObj["amount"] = curAmount;
+        sums.push(amountObj);
+      }
+      return sums;
+    },
+    dateRange: function () {
+      let dateRange = [];
+      const curDate = new Date();
+      switch (this.activeTag) {
+        case 0:
+          // Forever
+          dateRange[0] = new Date(0);
+          dateRange[1] = curDate;
+          break;
+        case 1:
+          // Today
+          dateRange[0] = new Date(
+            curDate.getFullYear(),
+            curDate.getMonth(),
+            curDate.getDate()
+          );
+          dateRange[1] = curDate;
+          break;
+        case 2:
+          // Yesterday
+          dateRange[0] = new Date(
+            curDate.getFullYear(),
+            curDate.getMonth(),
+            curDate.getDate() - 1
+          );
+          dateRange[1] = new Date(
+            curDate.getFullYear(),
+            curDate.getMonth(),
+            curDate.getDate()
+          );
+          break;
+        case 3:
+          // This week
+          dateRange[0] = new Date(
+            curDate.getFullYear(),
+            curDate.getMonth(),
+            curDate.getDate() - curDate.getDay()
+          );
+          dateRange[1] = curDate;
+          break;
+        case 4:
+          // This month
+          dateRange[0] = new Date(curDate.getFullYear(), curDate.getMonth(), 1);
+          dateRange[1] = curDate;
+          break;
+        case 5:
+          // Last month
+          dateRange[0] = new Date(
+            curDate.getFullYear(),
+            curDate.getMonth() - 1,
+            1
+          );
+          dateRange[1] = new Date(curDate.getFullYear(), curDate.getMonth(), 0);
+          break;
+        case 6:
+          dateRange[0] = new Date(this.datePickerRange[0]);
+          dateRange[1] = new Date(this.datePickerRange[1]);
+          break;
+      }
+      return dateRange;
+    },
+    filteredSums: function () {
+      return 1;
+    },
     sortedSums: function () {
       let tempSums = [];
       for (let sum of this.sums) {
@@ -133,6 +215,7 @@ export default {
   methods: {
     tagClick(id) {
       this.isDatePickerVisible = false;
+      this.activeTag = id;
       this.tagObj[id] = true;
       for (let el in this.tagObj) {
         if (el != id) this.tagObj[el] = false;

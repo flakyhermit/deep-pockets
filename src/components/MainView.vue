@@ -41,7 +41,7 @@
 
       <b-tabs position="is-centered has-text-weight-semibold" animated>
         <b-tab-item label="OVERVIEW">
-          <SummaryView :sums="netAmounts"></SummaryView>
+          <SummaryView :entries="entries" :categories="categories"></SummaryView>
         </b-tab-item>
         <b-tab-item label="HISTORY">
           <HistoryView
@@ -133,22 +133,6 @@ export default {
     }
   },
   computed: {
-    netAmounts: function () {
-      let netAmounts = [];
-      for (let category of this.categories) {
-        let curAmount = 0;
-        for (let entry of this.entries) {
-          if (entry.category == category) {
-            curAmount = curAmount + entry.amount;
-          }
-        }
-        let amountObj = {};
-        amountObj["category"] = category;
-        amountObj["amount"] = curAmount;
-        netAmounts.push(amountObj);
-      }
-      return netAmounts;
-    },
     viewHeight: function () {
       let height = 0;
       if (this.isViewMounted) {

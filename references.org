@@ -31,6 +31,7 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** DONE Floating header and add buttons
 ** DONE Tidy up header for mobile
 ** TODO Date based summary
+** TODO Change 'OVERVIEW'
 ** DONE Date picker bug
 ** DONE Sorting by amount
 ** DONE Persistent data storage in localStorage
