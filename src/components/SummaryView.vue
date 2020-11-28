@@ -193,13 +193,19 @@ export default {
           break;
         case 6:
           dateRange[0] = new Date(this.datePickerRange[0]);
-          dateRange[1] = new Date(this.datePickerRange[1]);
+          dateRange[1] = new Date(this.datePickerRange[1].getTime() + (1000 * 60 * 60 * 24));
           break;
       }
       return dateRange;
     },
-    filteredSums: function () {
-      return 1;
+    filteredEntries: function () {
+      let filteredEntries = []
+      for (let entry of this.entries) {
+        const entryDate = new Date(entry.timestamp)
+        if (this.dateRange[0] <= entryDate && entryDate < this.dateRange[1])
+          filteredEntries.push(entry)
+      }
+      return filteredEntries
     },
     sortedSums: function () {
       let tempSums = [];
