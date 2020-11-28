@@ -93,10 +93,12 @@
 </template>
 
 <script>
+import Toasts from './Toasts.vue'
 export default {
   props: {
     categories: Array,
   },
+  mixins: [Toasts],
   data() {
     return {
       showButtons: false,
@@ -106,15 +108,6 @@ export default {
     };
   },
   methods: {
-    toastDo: function (message, type) {
-      let typeAssign = type ? type : "is-dark";
-      this.$buefy.toast.open({
-        message: message,
-        duration: 1000,
-        position: "is-bottom",
-        type: typeAssign,
-      });
-    },
     emitRenameCategory: function () {
       if (this.newCategoryName && this.newCategoryName.length > 0) {
         this.$emit(
@@ -129,11 +122,11 @@ export default {
     },
     emitDeleteCategory: function () {
       this.$emit("delete-category", this.selectedCategory);
-      this.selectedCategory = null;
       this.toastDo(
         "All entries with the category '" + this.selectedCategory + "' deleted",
         "is-danger"
       );
+      this.selectedCategory = null;
     },
     clearOps: function () {
       console.log("Here");

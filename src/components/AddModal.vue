@@ -85,11 +85,13 @@
 
 <script>
 import AddCategory from "./AddCategory.vue";
+import Toasts from './Toasts.vue'
 
 export default {
   props: {
     categories: Array,
   },
+  mixins: [Toasts],
   components: {
     AddCategory,
   },
@@ -103,15 +105,6 @@ export default {
     };
   },
   methods: {
-    toastDo: function (message, type) {
-      let typeAssign = type ? type : "is-dark";
-      this.$buefy.toast.open({
-        message: message,
-        duration: 1000,
-        position: "is-bottom",
-        type: typeAssign,
-      });
-    },
     emitAddEntryEvent: function () {
       this.$emit("add-entry-details", this.entryDetails);
       this.entryDetails.amount = null;
