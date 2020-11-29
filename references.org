@@ -17,10 +17,10 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** DONE Category manager
 ** TODO Import/export
 ** CANC About page
-** TODO Confirmation dialogs
-** TODO Renaming bugs
-- [ ] Check if name already exists
-- [ ] Check if empty
+** ACTV Confirmation dialogs
+** DONE Renaming bugs
+- [X] Check if name already exists
+- [X] Check if empty
 ** DONE Fix toasts
 ** TODO UI issues on mobile
 ** DONE Fix header

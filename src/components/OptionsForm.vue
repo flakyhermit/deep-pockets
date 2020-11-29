@@ -53,7 +53,7 @@
               icon-left="check"
               @click="
                 isRename = false;
-                alertCustomError();
+                renameConditionsCheck();
               "
             ></b-button>
             <b-button @click="clearOps" icon-left="times"></b-button>
@@ -106,26 +106,36 @@ export default {
         message:
           "This operation will permanently change the category names in the entries you've added. Are you sure you want to go ahead with it?",
         type: "is-warning",
-        cancelText: 'Cancel',
-        confirmText: 'Confirm rename',
+        cancelText: "Cancel",
+        confirmText: "Confirm rename",
         ariaRole: "alertdialog",
         ariaModal: true,
-        onConfirm: () => { this.emitRenameCategory() }
-      }
+        onConfirm: () => {
+          this.emitRenameCategory();
+        },
+      },
     };
   },
   methods: {
+    renameConditionsCheck: function () {
+      let newName = this.letterCapitalize(this.newCategoryName)
+      if (
+        newName &&
+        newName.length > 0 &&
+        (this.categories.indexOf(newName) == -1)
+      ) {
+        this.confirmRenameDialog();
+      } else this.toastDo("Invalid name / name already exists.");
+    },
     emitRenameCategory: function () {
-      if (this.newCategoryName && this.newCategoryName.length > 0) {
-        this.$emit(
-          "rename-category",
-          this.selectedCategory,
-          this.newCategoryName
-        );
-        this.selectedCategory = null;
-        this.newCategoryName = null;
-        this.toastDo("Renamed all entries", "is-success");
-      } else this.toastDo("Invalid name");
+      this.$emit(
+        "rename-category",
+        this.selectedCategory,
+        this.newCategoryName
+      );
+      this.selectedCategory = null;
+      this.newCategoryName = null;
+      this.toastDo("Renamed all entries", "is-success");
     },
     emitDeleteCategory: function () {
       this.$emit("delete-category", this.selectedCategory);
@@ -139,11 +149,11 @@ export default {
       console.log("Here");
       this.isRename = false;
     },
-    alertCustomError() {
+    confirmRenameDialog() {
       this.$buefy.dialog.confirm(this.alertObj);
     },
     alertDelete() {},
-    alertRename() {}
+    alertRename() {},
   },
 };
 </script>
