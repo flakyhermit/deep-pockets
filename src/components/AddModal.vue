@@ -38,22 +38,6 @@
               </option>
             </b-select>
           </b-field>
-          <!-- <b-field label="Add category">
-            <b-input
-              placeholder="New category name"
-              class="control"
-              type="text"
-              v-model="newCategory"
-              min="1"
-              max="20"
-              expanded
-            ></b-input>
-            <b-button
-              class="is-success"
-              @click="emitAddCategory"
-              icon-left="plus"
-            ></b-button>
-          </b-field> -->
           <add-category @add-category-low="emitAddCategory"></add-category>
         </b-field>
 

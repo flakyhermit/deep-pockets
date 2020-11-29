@@ -52,7 +52,7 @@
         </b-tab-item>
       </b-tabs>
     </div>
-    <div class="button1">
+    <div class="buttons mb-5 is-flex is-justify-content-center">
       <b-button
         icon-left="file"
         class="button is-primary mx-2"
@@ -200,8 +200,7 @@ export default {
   flex-grow: 1;
   overflow: auto;
 }
-.button1 {
+.buttons {
   align-self: center;
-  margin: 1rem;
 }
 </style>

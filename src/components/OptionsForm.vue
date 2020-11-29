@@ -28,7 +28,8 @@
           </p>
         </b-field>
         <b-field grouped group-multiline>
-          <b-select class="control"
+          <b-select
+            class="control"
             placeholder="Select a category"
             required
             :disabled="!categories.length"
@@ -45,24 +46,17 @@
             </option>
           </b-select>
           <b-field v-if="isRename && selectedCategory">
-            <b-input
-              placeholder="New name"
-              v-model="newCategoryName"
-              expanded
-            >
+            <b-input placeholder="New name" v-model="newCategoryName" expanded>
             </b-input>
             <b-button
               class="is-success"
               icon-left="check"
               @click="
                 isRename = false;
-                emitRenameCategory();
+                alertCustomError();
               "
-              ></b-button> 
-              <b-button
-              @click="clearOps"
-              icon-left="times"
-              ></b-button>
+            ></b-button>
+            <b-button @click="clearOps" icon-left="times"></b-button>
           </b-field>
           <p class="buttons control">
             <b-button
@@ -71,7 +65,8 @@
               class="is-warning"
               icon-left="pen"
               @click="isRename = true"
-            >Rename</b-button>
+              >Rename</b-button
+            >
             <b-button
               :disabled="!selectedCategory"
               class="is-danger"
@@ -80,7 +75,8 @@
                 isRename = false;
                 emitDeleteCategory();
               "
-            >Delete</b-button>
+              >Delete</b-button
+            >
           </p>
         </b-field>
 
@@ -93,7 +89,7 @@
 </template>
 
 <script>
-import Toasts from './Toasts.vue'
+import Toasts from "./Toasts.vue";
 export default {
   props: {
     categories: Array,
@@ -105,6 +101,17 @@ export default {
       selectedCategory: null,
       isRename: false,
       newCategoryName: null,
+      alertObj: {
+        title: "Confirm changes",
+        message:
+          "This operation will permanently change the category names in the entries you've added. Are you sure you want to go ahead with it?",
+        type: "is-warning",
+        cancelText: 'Cancel',
+        confirmText: 'Confirm rename',
+        ariaRole: "alertdialog",
+        ariaModal: true,
+        onConfirm: () => { this.emitRenameCategory() }
+      }
     };
   },
   methods: {
@@ -132,6 +139,11 @@ export default {
       console.log("Here");
       this.isRename = false;
     },
+    alertCustomError() {
+      this.$buefy.dialog.confirm(this.alertObj);
+    },
+    alertDelete() {},
+    alertRename() {}
   },
 };
 </script>
