@@ -52,7 +52,7 @@
         </b-tab-item>
       </b-tabs>
     </div>
-    <div class="buttons mb-5 is-flex is-justify-content-center">
+    <div class="buttons my-5 is-flex is-justify-content-center">
       <b-button
         icon-left="file"
         class="button is-primary mx-2"

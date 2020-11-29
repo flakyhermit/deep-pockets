@@ -142,7 +142,7 @@ export default {
       this.checkedRows = [];
       this.$buefy.toast.open({
         message: `Entries deleted`,
-        duration: 1000,
+        duration: 2000,
         position: "is-bottom",
         type: "is-success",
       });

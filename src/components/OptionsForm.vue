@@ -125,7 +125,7 @@ export default {
         this.selectedCategory = null;
         this.newCategoryName = null;
         this.toastDo("Renamed all entries", "is-success");
-      } else this.toastDo("Enter a valid category name", "is-grey");
+      } else this.toastDo("Invalid name");
     },
     emitDeleteCategory: function () {
       this.$emit("delete-category", this.selectedCategory);
