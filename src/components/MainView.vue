@@ -32,8 +32,10 @@
         <template #default="props">
           <options-form
             v-bind:categories="categories"
+            v-bind:entries="entries"
             @close="props.close"
             @rename-category="renameCategory"
+            @import-entries="importEntries"
             @delete-category="deleteCategoryEntries"
           ></options-form>
         </template>
@@ -182,6 +184,10 @@ export default {
         if (entry.category == oldName) 
           entry.category = newName[0].toUpperCase() + newName.slice(1)
       }
+      this.writeFlag = !this.writeFlag
+    },
+    importEntries (importedEntries) {
+      this.entries = importedEntries
       this.writeFlag = !this.writeFlag
     }
   },

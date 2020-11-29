@@ -13,9 +13,23 @@
             if you lose it.
           </p>
         </b-field>
-        <div class="buttons">
-          <b-button class="is-primary">Export</b-button>
-          <b-button class="button">Import</b-button>
+        <div class="field file buttons">
+          <b-button class="" @click="downloadJSON()">Export</b-button>
+          <b-upload v-model="file" class="file-label" @input="validateJSON()">
+            <span class="file-cta">
+              <span class="file-label">Import</span>
+            </span>
+            <span class="file-name" v-if="file">
+              {{ file.name }}
+            </span>
+          </b-upload>
+          <b-button
+            class="is-success"
+            icon-left="check"
+            v-if="file"
+            @click="confirmLoad()"
+            >Load</b-button
+          >
         </div>
         <b-field label="Manage categories">
           <p class="content has-text-grey is-size-6">
@@ -93,6 +107,7 @@ import Toasts from "./Toasts.vue";
 export default {
   props: {
     categories: Array,
+    entries: Array,
   },
   mixins: [Toasts],
   data() {
@@ -100,6 +115,9 @@ export default {
       showButtons: false,
       selectedCategory: null,
       isRename: false,
+      file: null,
+      jsonImportText: null,
+      importEntries: null,
       newCategoryName: null,
       alertObj: {
         title: "Confirm changes",
@@ -114,15 +132,39 @@ export default {
           this.emitRenameCategory();
         },
       },
+      importAlertObj: {
+        title: "Confirm import?",
+        message:
+          "This will overwrite any data that you have in your cache right now. This operation is irreversible.",
+        type: "is-warning",
+        cancelText: "Cancel",
+        confirmText: "Load",
+        ariaRole: "alertdialog",
+        ariaModal: true,
+        onConfirm: () => {
+          this.importJSON();
+        },
+        jsonErrorAlert: {
+          title: "Confirm import?",
+          message:
+            "This will overwrite any data that you have in your cache right now. This operation is irreversible.",
+          type: "is-danger",
+        },
+      },
     };
+  },
+  computed: {
+    jsonExportText: function () {
+      return JSON.stringify(this.entries);
+    },
   },
   methods: {
     renameConditionsCheck: function () {
-      let newName = this.letterCapitalize(this.newCategoryName)
+      let newName = this.letterCapitalize(this.newCategoryName);
       if (
         newName &&
         newName.length > 0 &&
-        (this.categories.indexOf(newName) == -1)
+        this.categories.indexOf(newName) == -1
       ) {
         this.confirmRenameDialog();
       } else this.toastDo("Invalid name / name already exists.");
@@ -153,6 +195,80 @@ export default {
     },
     alertDelete() {},
     alertRename() {},
+    downloadJSON() {
+      var element = document.createElement("a");
+      let dateString = new Date().toISOString();
+      let filename = "Deep-Pockets_" + dateString + ".json";
+      element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," +
+          encodeURIComponent(this.jsonExportText)
+      );
+      element.setAttribute("download", filename);
+      element.style.display = "none";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    },
+    confirmLoad() {
+      this.$buefy.dialog.confirm(this.importAlertObj);
+    },
+    validateJSON() {
+      try {
+        if (this.file.type != "application/json" || !this.file.size) throw 0;
+        else {
+          let pr = this.file.text();
+          pr.then((text) => {
+            this.jsonImportText = text;
+            this.importEntries = JSON.parse(this.jsonImportText);
+          });
+          if (this.importEntries.constructor === Array) {
+            if (this.importEntries.length > 0) {
+              let keys = Object.keys(this.importEntries[0]);
+              if (keys.length == 4) {
+                let flag = 0;
+                let compareArray = ["amount", "category", "note", "timestamp"];
+                for (var i = 0; i < 4; i++) {
+                  if (keys[i] != compareArray[i]) {
+                    flag = 1;
+                    break;
+                  }
+                }
+                if (flag == 1) throw 1;
+              } else throw 0;
+            } else throw 1;
+          } else throw 0;
+        }
+      } catch (e) {
+        // Error alert dialog
+        switch (e) {
+          case 0:
+            this.toastDo(
+              "The file is not a Deep Pockets JSON, or it is corrupted",
+              "is-danger"
+            );
+            break;
+          case 1:
+            this.toastDo("The file has no entries in it. Nothing to do");
+            break;
+          default:
+            this.toastDo(
+              "The file is not a Deep Pockets JSON, or it is corrupted",
+              "is-danger"
+            );
+        }
+        // Clear upload
+        this.file = null;
+        this.importEntries = null;
+        this.jsonImportText = null;
+        return;
+      }
+      this.toastDo("File validated. Click load to load data");
+    },
+    importJSON() {
+      this.$emit("import-entries", this.importEntries);
+      this.toastDo("Imported entries", "is-success");
+    },
   },
 };
 </script>

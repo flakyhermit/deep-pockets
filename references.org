@@ -16,6 +16,7 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** DONE Add new entries to database
 ** DONE Category manager
 ** TODO Import/export
+** Decide on deletions and renamings
 ** CANC About page
 ** DONE Confirmation dialogs
 ** DONE Renaming bugs
