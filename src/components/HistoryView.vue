@@ -117,7 +117,6 @@ export default {
             if (this.dateRange != null) {
               let timestampL = new Date(this.dateRange[0]).getTime()
               let timestampH = new Date(this.dateRange[1]).getTime()
-              console.log(timestampH, ' ', timestampL)
               if (timestampL < entry.timestamp && entry.timestamp < timestampH)
                 filteredEntries.push(entry)
             }
@@ -127,7 +126,6 @@ export default {
         else if (this.dateRange != null) {
           let timestampL = new Date(this.dateRange[0]).getTime()
           let timestampH = new Date(this.dateRange[1]).getTime()
-          console.log(timestampH, ' ', timestampL)
           if (timestampL < entry.timestamp && entry.timestamp < timestampH)
             filteredEntries.push(entry)
         }

@@ -17,7 +17,7 @@ Ridiculously simple expense-tracking for Gen-Z kids
 ** DONE Category manager
 ** TODO Import/export
 ** CANC About page
-** ACTV Confirmation dialogs
+** DONE Confirmation dialogs
 ** DONE Renaming bugs
 - [X] Check if name already exists
 - [X] Check if empty

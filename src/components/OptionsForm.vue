@@ -146,7 +146,6 @@ export default {
       this.selectedCategory = null;
     },
     clearOps: function () {
-      console.log("Here");
       this.isRename = false;
     },
     confirmRenameDialog() {

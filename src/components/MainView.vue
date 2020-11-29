@@ -174,12 +174,10 @@ export default {
     },
     // Event listener calls
     recordEntry(entryDetails) {
-      // console.log(entryDetails);
       this.isComponentModalActive = false;
       this.addEntry(entryDetails);
     },
     renameCategory: function (oldName, newName) {
-      console.log(oldName, newName)
       for (let entry of this.entries) {
         if (entry.category == oldName) 
           entry.category = newName[0].toUpperCase() + newName.slice(1)
