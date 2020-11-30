@@ -26,7 +26,7 @@
           <b-button
             class="is-success"
             icon-left="check"
-            v-if="file"
+            v-if="validationFlag"
             @click="confirmLoad()"
             >Load</b-button
           >
@@ -118,6 +118,7 @@ export default {
       file: null,
       jsonImportText: null,
       importEntries: null,
+      validationFlag: false,
       newCategoryName: null,
       alertObj: {
         title: "Confirm changes",
@@ -213,43 +214,42 @@ export default {
     confirmLoad() {
       this.$buefy.dialog.confirm(this.importAlertObj);
     },
-    validateJSON() {
+    async validateJSON() {
       try {
         if (this.file.type != "application/json" || !this.file.size) throw 0;
         else {
-          let pr = this.file.text();
-          pr.then((text) => {
-            this.jsonImportText = text;
-            this.importEntries = JSON.parse(this.jsonImportText);
-          });
-          if (this.importEntries.constructor === Array) {
-            if (this.importEntries.length > 0) {
-              let keys = Object.keys(this.importEntries[0]);
-              if (keys.length == 4) {
-                let flag = 0;
-                let compareArray = ["amount", "category", "note", "timestamp"];
-                for (var i = 0; i < 4; i++) {
-                  if (keys[i] != compareArray[i]) {
-                    flag = 1;
-                    break;
-                  }
-                }
-                if (flag == 1) throw 1;
-              } else throw 0;
-            } else throw 1;
-          } else throw 0;
+          let fileText = await this.file.text();
+          console.log(fileText);
+          this.importEntries = JSON.parse(fileText);
+          if (this.importEntries.constructor != Array) throw "invalid";
+          if (this.importEntries.length == 0) throw "empty";
+          let keys = Object.keys(this.importEntries[0]);
+          console.log(keys.length)
+          if (keys.length != 4) throw "corrupt";
+          let flag = 0;
+          let compareArray = ["timestamp", "amount", "category", "note"];
+          for (var i = 0; i < 4; i++) {
+            if (keys[i] != compareArray[i]) {
+              flag = 1;
+              break;
+            }
+          }
+          if (flag == 1) throw "corrupt";
+          this.validationFlag = true;
         }
-      } catch (e) {
-        // Error alert dialog
-        switch (e) {
-          case 0:
+      } catch (error) {
+        switch (error) {
+          case "invalid":
             this.toastDo(
-              "The file is not a Deep Pockets JSON, or it is corrupted",
+              "The file is not a valid Deep Pockets JSON",
               "is-danger"
             );
             break;
-          case 1:
+          case "empty":
             this.toastDo("The file has no entries in it. Nothing to do");
+            break;
+          case "corrupt":
+            this.toastDo("The file is corrupt");
             break;
           default:
             this.toastDo(
@@ -260,7 +260,6 @@ export default {
         // Clear upload
         this.file = null;
         this.importEntries = null;
-        this.jsonImportText = null;
         return;
       }
       this.toastDo("File validated. Click load to load data");

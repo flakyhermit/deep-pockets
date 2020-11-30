@@ -97,7 +97,7 @@ export default {
   data: function () {
     return {
       entries: [],
-      categories: [],
+      categories: [], 
       // Function altering variables
       isComponentModalActive: false,
       isViewMounted: false,
