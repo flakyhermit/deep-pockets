@@ -216,27 +216,26 @@ export default {
     },
     async validateJSON() {
       try {
-        if (this.file.type != "application/json" || !this.file.size) throw 0;
-        else {
-          let fileText = await this.file.text();
-          console.log(fileText);
-          this.importEntries = JSON.parse(fileText);
-          if (this.importEntries.constructor != Array) throw "invalid";
-          if (this.importEntries.length == 0) throw "empty";
-          let keys = Object.keys(this.importEntries[0]);
-          console.log(keys.length)
-          if (keys.length != 4) throw "corrupt";
-          let flag = 0;
-          let compareArray = ["timestamp", "amount", "category", "note"];
-          for (var i = 0; i < 4; i++) {
-            if (keys[i] != compareArray[i]) {
-              flag = 1;
-              break;
-            }
+        if (this.file.type != "application/json" || !this.file.size)
+          throw "invalid";
+        let fileText = await this.file.text();
+        console.log(fileText);
+        this.importEntries = JSON.parse(fileText);
+        if (this.importEntries.constructor != Array) throw "invalid";
+        if (this.importEntries.length == 0) throw "empty";
+        let keys = Object.keys(this.importEntries[0]);
+        console.log(keys.length);
+        if (keys.length != 4) throw "corrupt";
+        let flag = 0;
+        let compareArray = ["timestamp", "amount", "category", "note"];
+        for (var i = 0; i < 4; i++) {
+          if (keys[i] != compareArray[i]) {
+            flag = 1;
+            break;
           }
-          if (flag == 1) throw "corrupt";
-          this.validationFlag = true;
         }
+        if (flag == 1) throw "corrupt";
+        this.validationFlag = true;
       } catch (error) {
         switch (error) {
           case "invalid":
@@ -260,6 +259,7 @@ export default {
         // Clear upload
         this.file = null;
         this.importEntries = null;
+        this.validationFlag = false;
         return;
       }
       this.toastDo("File validated. Click load to load data");
