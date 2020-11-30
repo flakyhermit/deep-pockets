@@ -27,7 +27,7 @@
             class="is-success"
             icon-left="check"
             v-if="validationFlag"
-            @click="confirmLoad()"
+            @click="confirmImport()"
             >Load</b-button
           >
         </div>
@@ -59,36 +59,19 @@
               {{ entry }}
             </option>
           </b-select>
-          <b-field v-if="isRename && selectedCategory">
-            <b-input placeholder="New name" v-model="newCategoryName" expanded>
-            </b-input>
-            <b-button
-              class="is-success"
-              icon-left="check"
-              @click="
-                isRename = false;
-                renameConditionsCheck();
-              "
-            ></b-button>
-            <b-button @click="clearOps" icon-left="times"></b-button>
-          </b-field>
           <p class="buttons control">
             <b-button
               :disabled="!selectedCategory"
-              v-if="!isRename"
               class="is-warning"
               icon-left="pen"
-              @click="isRename = true"
+              @click="promptRename"
               >Rename</b-button
             >
             <b-button
               :disabled="!selectedCategory"
               class="is-danger"
               icon-left="trash-alt"
-              @click="
-                isRename = false;
-                emitDeleteCategory();
-              "
+              @click="confirmDelete"
               >Delete</b-button
             >
           </p>
@@ -112,46 +95,11 @@ export default {
   mixins: [Toasts],
   data() {
     return {
-      showButtons: false,
       selectedCategory: null,
-      isRename: false,
       file: null,
-      jsonImportText: null,
       importEntries: null,
       validationFlag: false,
       newCategoryName: null,
-      alertObj: {
-        title: "Confirm changes",
-        message:
-          "This operation will permanently change the category names in the entries you've added. Are you sure you want to go ahead with it?",
-        type: "is-warning",
-        cancelText: "Cancel",
-        confirmText: "Confirm rename",
-        ariaRole: "alertdialog",
-        ariaModal: true,
-        onConfirm: () => {
-          this.emitRenameCategory();
-        },
-      },
-      importAlertObj: {
-        title: "Confirm import?",
-        message:
-          "This will overwrite any data that you have in your cache right now. This operation is irreversible.",
-        type: "is-warning",
-        cancelText: "Cancel",
-        confirmText: "Load",
-        ariaRole: "alertdialog",
-        ariaModal: true,
-        onConfirm: () => {
-          this.importJSON();
-        },
-        jsonErrorAlert: {
-          title: "Confirm import?",
-          message:
-            "This will overwrite any data that you have in your cache right now. This operation is irreversible.",
-          type: "is-danger",
-        },
-      },
     };
   },
   computed: {
@@ -167,8 +115,9 @@ export default {
         newName.length > 0 &&
         this.categories.indexOf(newName) == -1
       ) {
-        this.confirmRenameDialog();
+        return true;
       } else this.toastDo("Invalid name / name already exists.");
+      return false;
     },
     emitRenameCategory: function () {
       this.$emit(
@@ -191,8 +140,50 @@ export default {
     clearOps: function () {
       this.isRename = false;
     },
-    confirmRenameDialog() {
-      this.$buefy.dialog.confirm(this.alertObj);
+    confirmRename() {
+      this.$buefy.dialog.confirm({
+        title: "Confirm changes",
+        message:
+          "This operation will permanently change the category names in the entries you've added. Are you sure you want to go ahead with it?",
+        type: "is-danger",
+        cancelText: "Cancel",
+        confirmText: "Yes",
+        ariaRole: "alertdialog",
+        ariaModal: true,
+        onConfirm: () => {
+          this.emitRenameCategory();
+        },
+      });
+    },
+    confirmDelete() {
+      this.$buefy.dialog.confirm({
+        title: "Confirm deletion",
+        message:
+          "This operation will permanently delete entries with the selected category. Are you sure?",
+        type: "is-danger",
+        cancelText: "Cancel",
+        confirmText: "Yes",
+        ariaRole: "alertdialog",
+        ariaModal: true,
+        onConfirm: () => {
+          this.emitDeleteCategory();
+        },
+      });
+    },
+    confirmImport() {
+      this.$buefy.dialog.confirm({
+        title: "Confirm import",
+        message:
+          "This operation will overwrite any data that you currently have in the cache. Are you sure?",
+        type: "is-danger",
+        cancelText: "Cancel",
+        confirmText: "Yes",
+        ariaRole: "alertdialog",
+        ariaModal: true,
+        onConfirm: () => {
+          this.importJSON();
+        },
+      });
     },
     alertDelete() {},
     alertRename() {},
@@ -210,9 +201,6 @@ export default {
       document.body.appendChild(element);
       element.click();
       document.body.removeChild(element);
-    },
-    confirmLoad() {
-      this.$buefy.dialog.confirm(this.importAlertObj);
     },
     async validateJSON() {
       try {
@@ -267,6 +255,26 @@ export default {
     importJSON() {
       this.$emit("import-entries", this.importEntries);
       this.toastDo("Imported entries", "is-success");
+    },
+    promptRename() {
+      this.$buefy.dialog.prompt({
+        message: "Enter a new category name",
+        inputAttrs: {
+          type: "text",
+          placeholder: "Category name",
+          value: "",
+        },
+        confirmText: "RENAME",
+        trapFocus: true,
+        closeOnConfirm: false,
+        onConfirm: (value, { close }) => {
+          this.newCategoryName = value;
+          if (this.renameConditionsCheck()) {
+            this.confirmRename();
+            close();
+          }
+        },
+      });
     },
   },
 };

@@ -2,9 +2,7 @@
   <form @submit.prevent="emitAddEntryEvent">
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title has-text-weight-medium">
-          New Entry
-        </p>
+        <p class="modal-card-title has-text-weight-medium">New Entry</p>
         <button type="button" class="delete" @click="$emit('close')" />
       </header>
 
@@ -37,8 +35,15 @@
                 {{ entry }}
               </option>
             </b-select>
+
+            <b-button
+              class="is-warning"
+              @click="promptCategory"
+              icon-left="plus"
+              >Add Category</b-button
+            >
           </b-field>
-          <add-category @add-category-low="emitAddCategory"></add-category>
+          <!-- <add-category @add-category-low="emitAddCategory"></add-category> -->
         </b-field>
 
         <b-field label="Note">
@@ -68,8 +73,8 @@
 </template>
 
 <script>
-import AddCategory from "./AddCategory.vue";
-import Toasts from './Toasts.vue'
+// import AddCategory from "./AddCategory.vue";
+import Toasts from "./Toasts.vue";
 
 export default {
   props: {
@@ -77,7 +82,7 @@ export default {
   },
   mixins: [Toasts],
   components: {
-    AddCategory,
+    // AddCategory,
   },
   data() {
     return {
@@ -97,19 +102,39 @@ export default {
       this.toastDo("Entry added", "is-success");
     },
     letterCapitalize: function (word) {
-      return word[0].toUpperCase() + word.slice(1)
+      return word[0].toUpperCase() + word.slice(1);
     },
     emitAddCategory: function (newCategory) {
-      if (newCategory == null) { return }
+      if (newCategory == null) {
+        return false;
+      }
       let capitalizedName = this.letterCapitalize(newCategory);
       if (this.categories.indexOf(capitalizedName) != -1) {
         this.toastDo(`Category already exists!`);
+        return false;
       } else {
         this.$emit("add-category", capitalizedName);
         this.newCategory = null;
         this.toastDo("Category added", "is-success");
+        return true;
       }
-    }
+    },
+    promptCategory() {
+      this.$buefy.dialog.prompt({
+        message: "Enter a new category name",
+        inputAttrs: {
+          type: "text",
+          placeholder: "Category name.",
+          value: "",
+        },
+        confirmText: "ADD",
+        trapFocus: true,
+        closeOnConfirm: false,
+        onConfirm: (value, { close }) => {
+          if (this.emitAddCategory(value)) close();
+        },
+      });
+    },
   },
 };
 </script>
