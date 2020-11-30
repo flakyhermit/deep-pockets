@@ -2,7 +2,7 @@
   <form @submit.prevent="emitAddEntryEvent">
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title is-size-5 has-text-weight-medium">Options</p>
+        <p class="modal-card-title has-text-weight-medium">Options</p>
         <button type="button" class="delete" @click="$emit('close')" />
       </header>
 
