@@ -37,7 +37,6 @@
             </b-select>
 
             <b-button
-              class="is-warning"
               @click="promptCategory"
               icon-left="plus"
               >Add Category</b-button
