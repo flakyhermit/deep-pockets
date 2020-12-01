@@ -43,7 +43,6 @@
               >Add Category</b-button
             >
           </b-field>
-          <!-- <add-category @add-category-low="emitAddCategory"></add-category> -->
         </b-field>
 
         <b-field label="Note">

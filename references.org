@@ -24,8 +24,8 @@ Ridiculously simple expense-tracking for Gen-Z kids
 - [X] Check if empty
 ** DONE Fix toasts
 ** TODO UI issues on mobile
-** TODO Add category dialogs
-** TODO Dialog UI cleanup
+** DONE Add category dialogs
+** DONE Dialog UI cleanup
 ** TODO General text cleanup
 ** TODO Category name rules and validation
 ** DONE Fix header

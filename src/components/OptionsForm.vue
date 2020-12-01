@@ -48,7 +48,6 @@
             required
             :disabled="!categories.length"
             v-model="selectedCategory"
-            @input="clearOps"
             icon="tag"
           >
             <option
@@ -62,7 +61,6 @@
           <p class="buttons control">
             <b-button
               :disabled="!selectedCategory"
-              class="is-warning"
               icon-left="pen"
               @click="promptRename"
               >Rename</b-button
@@ -137,16 +135,12 @@ export default {
       );
       this.selectedCategory = null;
     },
-    clearOps: function () {
-      this.isRename = false;
-    },
     confirmRename() {
       this.$buefy.dialog.confirm({
         title: "Confirm changes",
         message:
           "This operation will permanently change the category names in the entries you've added. Are you sure you want to go ahead with it?",
         type: "is-danger",
-        cancelText: "Cancel",
         confirmText: "Yes",
         ariaRole: "alertdialog",
         ariaModal: true,
@@ -159,9 +153,8 @@ export default {
       this.$buefy.dialog.confirm({
         title: "Confirm deletion",
         message:
-          "This operation will permanently delete entries with the selected category. Are you sure?",
+          "This operation will permanently delete all entries with the selected category. Are you sure?",
         type: "is-danger",
-        cancelText: "Cancel",
         confirmText: "Yes",
         ariaRole: "alertdialog",
         ariaModal: true,
@@ -185,8 +178,6 @@ export default {
         },
       });
     },
-    alertDelete() {},
-    alertRename() {},
     downloadJSON() {
       var element = document.createElement("a");
       let dateString = new Date().toISOString();
