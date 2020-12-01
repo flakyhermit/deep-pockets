@@ -14,7 +14,7 @@
           </p>
         </b-field>
         <div class="field file buttons">
-          <b-button class="" @click="downloadJSON()">Export</b-button>
+          <b-button class="is-primary" @click="downloadJSON()">Export</b-button>
           <b-upload v-model="file" class="file-label" @input="validateJSON()">
             <span class="file-cta">
               <span class="file-label">Import</span>
@@ -33,12 +33,10 @@
         </div>
         <b-field label="Manage categories">
           <p class="content has-text-grey is-size-6">
-            Rename or delete category names.
+            Rename or delete categories.
             <br />
-            <span class="has-text-danger has-text-weight-semibold">Note</span>:
-            These operations change the entries themselves. Deleting a category
-            will delete all the entries with that category. Renaming will rename
-            the category in the past entries.
+            <span class="has-text-weight-semibold">Note</span>:
+            These operations change the entries themselves. Tread carefully.
           </p>
         </b-field>
         <b-field grouped group-multiline>
@@ -246,6 +244,8 @@ export default {
     importJSON() {
       this.$emit("import-entries", this.importEntries);
       this.toastDo("Imported entries", "is-success");
+      this.file = null
+      this.validationFlag = false;
     },
     promptRename() {
       this.$buefy.dialog.prompt({
