@@ -239,7 +239,7 @@ export default {
         this.validationFlag = false;
         return;
       }
-      this.toastDo("File validated. Click load to load data");
+      this.toastDo("File validated. Click load to load data", "is-success");
     },
     importJSON() {
       this.$emit("import-entries", this.importEntries);
